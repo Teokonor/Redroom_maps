@@ -1,0 +1,423 @@
+cape_verde 1975
+mauritania 1960
+senegal 1960
+guinea_bissau 1973
+burkina_faso 1960
+togo 1960
+ghana 1957
+cote_d_ivoire 1960
+mali 1960
+liberia 1824
+sierra_leone 1961
+guinea 1958
+gambia 1965
+benin 1960
+chad 1960
+niger 1960
+nigeria 1970
+central_african_rep 1960
+gabon 1960
+rwanda 1962
+uganda 1962
+drcongo 1997
+rep_congo 1960
+s_tome_and_principe 1975
+eq_guinea 1968
+cameroon 1960
+kenya 1963
+malawi 1964
+tanzania 1964
+burundi 1962
+ethiopia 1993
+djibouti 1977
+eritrea 1993
+somalia 1960
+somaliland 1991
+zambia 1964
+south_africa 1989
+namibia 1989
+angola 1975
+botswana 1966
+zimbabwe 1979
+mozambique 1975
+madagascar 1960
+eswatini 2018
+lesotho 1966
+mauritius 1968
+fr_reunion 1944
+seychelles 1976
+comoros 1975
+swaziland 1968 2017
+ethiopia1952 1952 1992
+zaire 1971 1996
+prt_angola1665 1665 1974
+prt_mozambique1640 1640 1974
+prt_st_tome1640 1640 1974
+prt_cape_verde1640 1640 1974
+prt_guinea 1881 1972
+rhodesia 1965 1978
+br_seychelles1814 1814 1975
+fr_djibouti1944 1944 1976
+fr_comoros1945 1945 1974
+br_gambia1783 1783 1964
+br_sierra_leone 1787 1960
+sp_guinea 1885 1967
+nigeria1967 1967 1969
+biafra 1967 1969
+congo1963 1963 1970
+br_e_africa1962 1962 1962
+br_e_africa1961 1961 1961
+bel_ruanda_urundi 1960 1961
+tanganyika 1961 1963
+zanzibar1963 1963 1963
+br_swazi 1910 1967
+br_lesotho 1910 1965
+br_rhodesia1965 1965 1965
+br_rhodesia1964 1964 1964
+br_rhodesia1893 1893 1963
+br_mauritius1810 1810 1967
+katanga 1960 1962
+congo1960 1960 1962
+br_e_africa1919 1919 1960
+br_zanzibar1890 1890 1962
+nigeria1960 1960 1966
+n_somalia 1960 1990
+ital_somalia1949 1949 1959
+br_somalia1941 1941 1959
+fr_madagascar1945 1945 1959
+bel_congo1944 1944 1959
+fr_eq_africa1944 1944 1959
+br_nigeria1898 1898 1959
+fr_w_africa1958 1958 1959
+south_africa1919 1919 1988
+fr_w_africa1944 1944 1957
+br_gold_coast1895 1895 1956
+br_eritrea 1941 1951
+ethiopia1941 1941 1951
+br_s_somalia 1941 1948
+br_madagascar1942 1942 1944
+br_comoros1942 1942 1944
+fr_reunion1942 1942 1943
+fr_reunion1940 1940 1941
+fr_madagascar1940 1940 1941
+fr_comoros1940 1940 1941
+fr_madagascar1895 1895 1939
+fr_comoros1886 1886 1939
+fr_reunion1815 1815 1939
+br_eq_africa1940 1940 1943
+bel_congo1940 1940 1943
+bel_congo1908 1908 1939
+fr_eq_africa1916 1916 1939
+br_djibouti1940 1940 1943
+fr_djibouti1887 1887 1939
+ital_e_africa1936 1936 1940
+ital_n_somalia 1940 1940
+br_somalia1884 1884 1939
+fr_w_africa1942 1942 1943
+fr_w_africa1940 1940 1941
+fr_w_africa1915 1915 1939
+ethiopia1890 1890 1935
+ital_eritrea1928 1928 1935
+ital_somalia1928 1928 1935
+germ_e_africa1897 1897 1918
+fr_eq_africa1901 1901 1915
+germ_cameroon 1884 1915
+br_e_africa1890 1890 1918
+germ_togo 1884 1914
+ital_eritrea1890 1890 1927
+ital_somalia1888 1888 1927
+germ_s_w_africa 1884 1914
+south_africa1910 1910 1914
+fr_w_africa1904 1904 1914
+br_walvis_bay 1878 1918
+south_africa1915 1915 1918
+br_south_africa1902 1902 1909
+fr_w_africa1895 1895 1903
+tuareg -1000 1903
+congo_free_st1892 1892 1907
+transvaal1881 1881 1901
+orange_free_state 1854 1901
+fr_eq_aftica1839 1839 1900
+ouaddai 1634 1900
+br_nigeria1897 1897 1897
+sokoto 1804 1897
+br_nigeria1888 1888 1896
+benin1179 1179 1896
+rwanda1349 1349 1896
+germ_e_africa1885 1885 1896
+burundi1529 1529 1896
+fr_senegal1892 1892 1894
+dendi 1591 1894
+br_gold_coats1821 1821 1894
+ashanti 1701 1894
+fr_benin1894 1894 1894
+dahomey 1645 1893
+fr_benin1863 1863 1893
+swazi 1719 1893
+merina 1786 1894
+br_rhodesia1890 1890 1892
+br_malawi 1891 1892
+bornu 1396 1892
+fr_senegal1783 1783 1891
+toucouleur 1860 1891
+congo_free_st1887 1887 1891
+kazembe 1739 1891
+yeke 1870 1891
+lunda 1664 1890
+bunyoro1519 1519 1889
+buganda 1299 1889
+br_e_africa1885 1885 1889
+germ_witu 1885 1889
+germ_zanzibar1885 1885 1889
+ethiopia1543 1543 1889
+congo_free_st1884 1884 1886
+tippu_tip 1875 1886
+br_nigeria1851 1851 1887
+oyo 1599 1887
+zanzibar1861 1861 1884
+br_south_africa1876 1876 1901
+br_s_afr_transvaal 1876 1880
+zulu 1815 1875
+transvaal1856 1856 1875
+br_south_africa1854 1854 1875
+luba 1584 1869
+rozwi 1479 1865
+br_south_africa1805 1805 1853
+oman_zanzibar1747 1747 1860
+br_reunion1810 1810 1814
+fr_seychelles 1756 1767
+fr_mauritius1715 1715 1767
+fr_reunion1768 1768 1809
+nl_south_africa 1652 1804
+hausa 999 1803
+br_south_africa1794 1794 1803
+malagasy 499 1785
+prt_fernando_po1640 1640 1777
+mutapa 1429 1758
+oman_zanzibar1698 1698 1736
+prt_zanzibar1690 1690 1697
+nl_mauritius1648 1648 1699
+fr_seychelles1768 1768 1813
+fr_reunion1638 1638 1678
+fr_mauritius1768 1768 1809
+oman_zanzibar1668 1668 1689
+prt_zanzibar1640 1640 1667
+prt_luanda1650 1650 1664
+kongo1389 1389 1664
+prt_angola1640 1640 1649
+prt_luanda1640 1640 1649
+sp_cape_verde1589 1589 1639
+sp_fernando_po1589 1589 1639
+sp_st_tome1589 1589 1639
+sp_luanda1589 1589 1639
+sp_angola1589 1589 1639
+sp_mozambique1589 1589 1639
+nl_mauritius1638 1638 1647
+mali1375 1375 1609
+songhai 1375 1590
+sp_cape_verde1580 1580 1588
+sp_st_tome1580 1580 1588
+sp_fernando_po1580 1580 1588
+sp_zanzibar1589 1589 1639
+sp_zanzibar1580 1580 1588
+sp_luanda1580 1580 1588
+sp_angola1586 1586 1588
+sp_mozambique1580 1580 1588
+prt_st_tome1493 1493 1579
+prt_fernando_po1474 1474 1579
+prt_zanzibar1505 1505 1579
+prt_luanda1574 1574 1579
+prt_mozambique1505 1505 1579
+prt_cape_verde1462 1462 1579
+wolof 1350 1539
+ethiopia999 999 1542
+adal 1414 1542
+prt_zanzibar1504 1504 1504
+kilwa 979 1504
+zanzibar1442 1442 1504
+kanem 699 1395
+mali1350 1350 1374
+mali1235 1235 1349
+sosso 1180 1234
+ghana1087 1087 1179
+almoravid_ghana1076 1076 1081
+ghana299 299 1075
+aksum 0 959
+old_sahara -13000 -3001
+egypt 1971
+sudan 2011
+s_sudan 2011
+libya 1951
+tunisia 1956
+algeria 1962
+morocco 1956
+w_sahara 1976
+sudan1956 1956 2010
+uar 1958 1970
+fr_algeria 1960 1961
+sp_sahara 1885 1975
+fr_n_africa1956 1956 1959
+sp_morocco1912 1912 1955
+fr_n_africa1944 1944 1955
+br_libya 1941 1950
+fr_libya1944 1944 1950
+fr_libya1943 1943 1943
+ital_libya 1941 1942
+fr_n_africa1943 1943 1943
+fr_n_africa1942 1942 1942
+br_n_africa 1942 1942
+germ_n_africa 1942 1942
+fr_n_africa1940 1940 1941
+fr_n_africa1830 1830 1903
+ital_libya1912 1912 1918
+egypt1922 1922 1957
+br_sudan1898 1898 1915
+br_egypt 1882 1921
+ott_libya1543 1543 1911
+morocco1666 1666 1911
+sudan1882 1882 1897
+ott_egypt1801 1801 1881
+ott_algeria1574 1574 1829
+sp_oran1589 1589 1791
+ott_egypt1798 1798 1800
+fr_egypt1798 1798 1800
+sennar 1504 1820
+ott_sudan 1821 1881
+ott_egypt1517 1517 1797
+br_tangier 1662 1683
+saadi1554 1554 1665
+prt_tangier1640 1640 1661
+sp_tangier1589 1589 1639
+alodia 599 1503
+sp_oran1508 1508 1588
+sp_tangier1580 1580 1588
+prt_tangier1470 1470 1579
+ott_algeria1543 1543 1573
+hafsid1488 1488 1573
+tlemcen1488 1488 1542
+ott_algeria1525 1525 1542
+mamluk1250 1250 1516
+wattasid 1465 1553
+hafsid1423 1423 1487
+marinid1258 1258 1464
+hafsid1229 1229 1422
+tlemcen1237 1237 1487
+makuria700 700 1396
+ayyubid1174 1174 1249
+almohad1250 1250 1257
+marinid1250 1250 1257
+almohad1237 1237 1249
+almohad1229 1229 1236
+almohad1152 1152 1228
+mosulian_egypt 1171 1173
+almohad1151 1151 1151
+zirid1048 1048 1151
+almohad1150 1150 1150
+hammadid1048 1048 1150
+almoravid1034 1034 1081
+almohad1125 1125 1149
+fatimid972 972 1170
+buyid_egypt946 946 971
+fatimid927 927 971
+fatimid909 909 926
+idrisid788 788 926
+tahert778 778 908
+abbasid_egypt944 944 945
+abbasid_egypt905 905 943
+egypt868 868 904
+makuria350 350 699
+nobatia350 350 699
+byz_egypt628 628 641
+erm_egypt627 627 627
+sassanid_egypt617 617 626
+erm_egypt533 533 616
+erm_egypt395 395 532
+rm_egypt273 273 394
+meroe -270 349
+palmyran_egypt 269 272
+rm_egypt30m -30 268
+egypt300m -300 -31
+mauretania106m -106 -33
+mauretania -250 -107
+numidia202m -202 -107
+numidia_west -250 -203
+numidia_east -250 -203
+kush666m -666 -271
+diadochian_egypt -322 -301
+alex_egypt -331 -323
+persian_egypt343m -343 -332
+egypt404m -404 -344
+persian_egypt525m -525 -405
+egypt654m -654 -526
+assyrian_egypt -666 -655
+egypt716m -716 -667
+egyptian_kush716m -716 -667
+kushan_egypt719m -719 -717
+kush1020m -1020 -717
+sais727m -727 -717
+leontopolis -818 -717
+kushan_egypt727m -727 -720
+egypt727m -727 -720
+egypt747m -747 -728
+herakleopolis -747 -728
+hermopolis -747 -728
+egypt818m -818 -748
+egypt942m -942 -819
+egypt1079m -1079 -943
+tanis -1079 -943
+egypt1550m -1550 -1080
+nubia1566m -1566 -1526
+egyptian_nubia1079m -1079 -1021
+egyptian_nubia1525m -1525 -1080
+egypt1785m -1785 -1551
+hyksos1600m -1600 -1551
+hyksos1655m -1655 -1601
+xois1655m -1655 -1601
+nubia3500m -3500 -1567
+nubia_state -1620 -1567
+xois1785m -1785 -1657
+egypt2037m -2037 -1786
+egypt2133m -2133 -2038
+menphis2184m -2184 -2038
+egypt3500m -3500 -2185
+br_sudan1916 1916 1955
+darfur1882 1882 1915
+darfur1614 1614 1874
+caliph_egypt 642 660
+umayyad_africa 669 749
+umayyad_egypt 661 749
+abbasid_africa750 750 777
+abbasid_egypt750 750 818
+abbasid_africa778 778 787
+abbasid_africa788 788 818
+abbasid_africa819 819 867
+abbasid_egypt819 819 867
+abbasid_africa868 868 908
+fatimid_africa 972 1047
+byz_africa628 628 669
+erm_africa 533 627
+vandals435 435 532
+wrm_africa 395 434
+vandals409 409 434
+ital_libya1919 1919 1927
+libyan1543 1543 1844
+libyan1000m -1000 1542
+cyrene -630 -512
+proto_berbers -3000 -1001
+carthage -825 -146
+rm_africa145m -145 -107
+rm_africa106m -106 -32
+rm_africa32m -32 394
+berbers250m -250 1033
+garamantes -1000 668
+libyan669 669 1542
+berbers1000m -1000 -251
+almoravid1082 1082 1149
+fr_n_africa1904 1904 1939
+berbers1034 1034 1081
+senusiyya 1845 1918
+s_sudan
+fr_reunion1679 1679 1767
+ital_libya1928 1928 1940
+almoravid_ghana1082 1082 1086
+oman_zanzibar1737 1737 1746

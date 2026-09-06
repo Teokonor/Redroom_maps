@@ -1,0 +1,97 @@
+australia 1900
+new_zealand 1907
+fr_new_caledonia1853 1853 1939
+vanuatu 1980
+solomon_is 1978
+fiji 1970
+tonga 1970
+nz_cooks 1907
+fr_polynesia1880 1880 1939
+samoa 1962
+tuvalu 1978
+nauru 1968
+marshall_is 1990
+micronesia 1986
+palau 1994
+us_guam 1944
+us_marianas 1944
+us_wake 1899
+kiribati 1979
+br_pitcairn 1838
+us_hawaii 1898
+hawaii 1810 1897
+nz_niue 1907
+us_samoa 1899
+fr_wallis_futuna1837 1837 1939
+br_cooks 1779 1906
+br_fr_new_hebrides 1906 1979
+br_fiji 1874 1969
+br_tonga 1900 1969
+nz_samoa 1914 1961
+germ_samoa 1899 1913
+br_niue 1899 1906
+tonga1845 1845 1899
+us_palau1944 1944 1993
+us_caroline1944 1944 1985
+br_solomon_is 1893 1977
+jp_caroline 1919 1943
+jp_palau 1919 1943
+germ_caroline 1899 1918
+germ_palau 1899 1918
+sp_caroline1574 1574 1588
+sp_palau1574 1574 1588
+br_tuvalu 1892 1977
+br_kiribati 1836 1978
+jp_guam 1941 1943
+jp_marianas 1919 1943
+us_guam1898 1898 1940
+germ_marianas 1899 1918
+sp_marianas1565 1565 1588
+sp_guam1564 1564 1588
+us_marshall_is 1944 1989
+aus_nauru 1945 1967
+jp_marshall_is 1919 1943
+jp_nauru 1942 1944
+aus_nauru1919 1919 1941
+germ_marshall_is 1884 1918
+germ_nauru 1888 1918
+sp_marshall_is1529 1529 1588
+br_new_zealand 1839 1906
+br_australia1788 1788 1828
+maori 899 1838
+australians2990m -3000 1787
+polynesia990m -1000 1778
+polynesia1837 1837 1844
+polynesia1880 1880 1891
+polynesia1892 1892 1898
+polynesia1845 1845 1879
+polynesia1810 1810 1836
+polynesia1779 1779 1809
+fr_wallis_futuna1940 1940 1941
+fr_wallis_futuna1942 1942 1943
+fr_wallis_futuna 1944
+fr_polynesia1940 1940 1941
+fr_polynesia1942 1942 1943
+fr_polynesia 1944
+fr_new_caledonia1940 1940 1941
+fr_new_caledonia1942 1942 1943
+fr_new_caledonia 1944
+sp_guam1589 1589 1897
+sp_marshall_is1589 1589 1883
+sp_caroline1589 1589 1898
+sp_palau1589 1589 1898
+sp_marianas1589 1589 1898
+australians1788 1788 1828
+br_australia1829 1829 1899
+melanesia1893 1893 1905
+melanesia1874 1874 1892
+melanesia1853 1853 1873
+melanesia1190m -1200 1852
+micronesia1836 1836 1887
+micronesia1574 1574 1835
+micronesia1565 1565 1573
+micronesia1564 1564 1564
+micronesia1529 1529 1563
+micronesia499 499 1528
+australia
+antarctica -3000

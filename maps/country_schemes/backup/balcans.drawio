@@ -1,0 +1,478 @@
+<mxfile host="Electron">
+  <diagram name="Страница-1" id="WxjTiX5e1wcchizfW5xJ">
+    <mxGraphModel dx="-155" dy="1459" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="yDLKrzOJ0aDyJLxXLapK-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="serbia&lt;div&gt;2007-&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="3560" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="greece&lt;div&gt;1945-&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2960" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="north_macedonia&lt;div&gt;2020-&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="3640" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="kosovo&lt;div&gt;2009-&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="3600" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="montenegro&lt;div&gt;2007-&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="3560" y="-50" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="bosnia_and_herz&lt;div&gt;1993-&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="3360" y="-120" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="croatia&lt;div&gt;1992-&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="3320" y="-190" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="slovenia&lt;div&gt;1992-&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="3320" y="-260" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="hungary&lt;div&gt;1919-&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2400" y="-330" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="austria&lt;div&gt;1956-&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="3280" y="-510" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-15" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-10" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="srb_kosovo&lt;div&gt;2004-2008&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="3400" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-17" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-12" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="srb_montenegro&lt;div&gt;2004-2006&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="3400" y="-50" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-16" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-13" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="yDLKrzOJ0aDyJLxXLapK-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="serbia_and_monte-&lt;div&gt;negro&lt;/div&gt;&lt;div&gt;2004-2006&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="3400" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-19" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-18" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-18" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="yugoslavia&lt;div&gt;1945-2003&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2960" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-22" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-20" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-20" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ysl_bosnia&lt;div&gt;1946-1992&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="3120" y="-120" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-26" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-21" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-21" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="ysl_macedonia&lt;div&gt;1945-1992&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2960" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-25" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-24" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-24" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="macedonia&lt;div&gt;1993-2019&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="3360" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-29" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-27" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-27" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ysl_croatia&lt;div&gt;1946-1991&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="3120" y="-190" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-30" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-28" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-28" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ysl_slovenia&lt;div&gt;1946-1991&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="3120" y="-260" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-31" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="turkey&lt;div&gt;1923-&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2440" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-32" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="albania&lt;div&gt;1945-&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2960" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-37" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-33" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-33" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="fr_ausrtia&lt;div&gt;1946-1955&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="3120" y="-620" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-40" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-34" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-34" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ru_austria&lt;div&gt;1946-1955&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="3120" y="-400" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-39" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-35" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-35" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="br_austria&lt;div&gt;1946-1955&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="3120" y="-470" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-38" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-36" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-36" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="us_austria&lt;div&gt;1946-1955&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="3120" y="-550" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-42" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-41" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-43" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-41" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-44" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-41" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-45" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-41" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-34">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-41" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="germ_austria&lt;div&gt;1939-1945&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2560" y="-510" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-47" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-46" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-46" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="germ_slovenia&lt;div&gt;1942-1945&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2640" y="-260" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-55" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-48" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-48" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="germ_serbia&lt;div&gt;1942-1944&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2640" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-50" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-49" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-49" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ysl_montenegro&lt;div&gt;1945-2003&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2960" y="-50" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-52" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-51" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-51" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ysl_kosovo&lt;div&gt;1945-2003&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2960" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-54" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-53" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-53" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="germ_greece1944&lt;div&gt;1944-1944&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2800" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-57" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-56" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-56" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="montenegro1942&lt;div&gt;1942-1944&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2640" y="-50" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-60" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-58" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-58" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="germ_bosnia&lt;div&gt;1945-1945&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2960" y="-120" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-61" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-59" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-59" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="germ_croatia&lt;div&gt;1945-1945&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2960" y="-190" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-63" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-62" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-62" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="germ_albania&lt;div&gt;1944-1944&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2800" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-66" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-64" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-64" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="germ_kosovo&lt;div&gt;1944-1944&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2800" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-69" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-68" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-62">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-68" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="italian_albania&lt;div&gt;1940-1943&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2600" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-72" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-70" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-53">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-70" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="germ_greece1942&lt;div&gt;1942-1943&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2640" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-73" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-71" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-53">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-71" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="italian_greece&lt;div&gt;1942-1943&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2640" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-75" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-74" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-70">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-76" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-74" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-71">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-74" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="greece1830&lt;div&gt;1830-1941&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="1920" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-79" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-77" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-59">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-77" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="croatia1942&lt;div&gt;1942-1944&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2640" y="-190" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-80" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-78" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-58">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-78" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="croat_bosnia&lt;div&gt;1942-1944&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2640" y="-120" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-82" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-81" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-64">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-81" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="italian_kosovo&lt;div&gt;1942-1943&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2640" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-99" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-83" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-48">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-83" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="yugoslavia1919&lt;div&gt;1919-1941&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2400" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-100" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-84" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-56">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-84" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ysl_montenegro1919&lt;div&gt;1919-1941&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2400" y="-50" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-101" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-85" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-78">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-85" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ysl_bosnia1919&lt;div&gt;1919-1941&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2400" y="-120" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-102" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-86" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-77">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-86" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ysl_croatia1919&lt;div&gt;1919-1941&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2400" y="-190" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-103" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-87" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-46">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-87" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="ysl_slovenia1919&lt;div&gt;1919-1941&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2400" y="-260" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-104" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-88" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-81">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-88" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ysl_kosovo1919&lt;div&gt;1919-1941&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2400" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-106" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-105" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-105" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="austria1919&lt;div&gt;1919-1938&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2400" y="-510" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-108" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-107" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-105">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-107" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="austria_hungary&lt;div&gt;1867-1918&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2000" y="-510" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-110" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-109" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-109" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="aut_hungary1868&lt;div&gt;1867-1918&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2000" y="-330" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-112" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-111" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-111" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ottoman" vertex="1">
+          <mxGeometry height="60" width="120" x="1760" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-115" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-114" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-68">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-114" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="albania1919&lt;div&gt;1919-1939&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2400" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-127" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-116" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-86">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-116" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="aut_croatia1868&lt;div&gt;1867-1918&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2000" y="-190" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-126" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-117" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-85">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-117" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="aut_bosnia1879&lt;div&gt;1879-1918&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2040" y="-120" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-125" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-118" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-84">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-118" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="aut_montenegro&lt;div&gt;1916-1918&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2240" y="-50" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-124" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-119" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-83">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-119" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="aut_serbia&lt;div&gt;1916-1918&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2240" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-123" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-120" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-88">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-120" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="aut_kosovo&lt;div&gt;1916-1918&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2240" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-122" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-121" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-114">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-121" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="aut_albania&lt;div&gt;1916-1918&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2240" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-129" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-128" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-118">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-128" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="montenegro1879&lt;div&gt;1879-1915&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2040" y="-50" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-131" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-130" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-119">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-130" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="serbia1879&lt;div&gt;1879-1915&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2040" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-133" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-132" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-120">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-132" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="serbian_kosovo1913&lt;div&gt;1913-1915&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2080" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-135" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-134" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-121">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-134" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="albania1913&lt;div&gt;1913-1915&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="2080" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-139" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-136" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-132">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-136" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ott_kosovo&lt;div&gt;-1912&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="1760" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-138" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-137" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-134">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-137" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ott_albania&lt;div&gt;1469-1912&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="1320" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-144" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-141" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-130">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-141" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ott_serbia" vertex="1">
+          <mxGeometry height="60" width="120" x="1760" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-145" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-142" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-128">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-142" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ott_montenegro" vertex="1">
+          <mxGeometry height="60" width="120" x="1760" y="-50" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-146" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-143" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-117">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-143" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ott_bosnia&lt;div&gt;1464-1878&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="1280" y="-120" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-149" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-147" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-107">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-147" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="germ_austria&lt;div&gt;1815-1866&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="1840" y="-510" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-150" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-148" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-109">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-148" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="aut_hungary&lt;div&gt;1815-1866&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="1840" y="-330" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-152" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-151" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-116">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-151" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="aut_croatia&lt;div&gt;1815-1866&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="1840" y="-190" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-158" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-153" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-151">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-153" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="aut_croatia1807&lt;div&gt;1807-1814&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="1680" y="-190" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-157" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-154" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-148">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-154" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="aut_hungary1807&lt;div&gt;1807-1814&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="1680" y="-330" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-156" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-155" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-147">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-155" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="austria1807&lt;div&gt;1807-1814&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="1680" y="-510" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-162" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-159" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-155">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-159" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="hre_austria1454&lt;div&gt;1454-1806&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="1200" y="-510" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-163" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-160" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-154">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-160" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="aut_hungary1692&lt;div&gt;1692-1806&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="1520" y="-330" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-164" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-161" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-153">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-161" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="aut_croatia&lt;div&gt;1527-1806&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="1360" y="-190" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-166" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-165" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-160">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-165" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ott_hungary&lt;div&gt;1527-1961&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="1360" y="-330" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-168" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-167" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-165">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-167" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="hungary" vertex="1">
+          <mxGeometry height="60" width="120" x="1200" y="-330" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-170" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-169" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-161">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-169" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="hung_croatia" vertex="1">
+          <mxGeometry height="60" width="120" x="1200" y="-190" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-172" edge="1" parent="1" source="3qKmESLbdRP8baCQ7eBb-171" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="3qKmESLbdRP8baCQ7eBb-74">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3qKmESLbdRP8baCQ7eBb-171" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ott_greece" vertex="1">
+          <mxGeometry height="60" width="120" x="1760" y="330" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

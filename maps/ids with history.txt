@@ -1,0 +1,291 @@
+afghanistan
+albania
+algeria: fr_algeria, algeria
+american_samoa
+andorra
+angola: portugal_angola, angola
+antarctica
+antigua_and_barb: britain, antigua_and_barb
+argentina
+arm_ssr: arm_ssr, armenia
+armenia: arm_ssr, armenia
+australia
+australian_nauru: australian_nauru, nauru
+australian_new_guinea: australian_new_guinea, papua_new_guinea
+austria
+az_ssr: az_ssr, azerbaijan
+azerbaijan: az_ssr, azerbaijan
+bahamas: britain, bahamas
+bahrain: br_bahrain, bahrain
+bangladesh: east_pakistan, bangladesh
+barbados: br_barbados, barbados
+bel_ssr: bel_ssr, belarus
+belarus: bel_ssr, belarus
+belgium
+belize: britain, belize
+benin
+bhutan
+bolivia
+bosnia_and_herz: usl_bos, bosnia_and_herz
+botswana: br_rodesia, botswana
+br_bahrain: br_bahrain, bahrain
+br_barbados: br_barbados, barbados
+br_brunei: br_brunei, brunei
+br_fiji: br_fiji, fiji
+br_jamaica: br_jamaica, jamaica
+br_kuwait: br_kuwait, kuwait
+br_lesotho: br_lesotho, lesotho
+br_malta: br_malta, malta
+br_mauritius: br_mauritius, mauritius
+br_oman: br_oman, oman
+br_qatar: br_qatar, qatar
+br_rodesia: br_rodesia, rodesia, zimbabwe
+br_singapore: br_singapore, singapore
+br_swazilend: br_swazilend, swazilend, eswatini
+br_tonga: br_tonga, tonga
+br_trucial_oman: br_trucial_oman, united_arab_emirates
+brazil
+britain
+brunei: br_brunei, brunei
+bulgaria
+burkina_faso
+burma: burma, myanmar
+burundi: rwanda_urundi, burundi
+cabo_verde: portugal, cabo_verde
+cambodia
+cameroon
+canada
+catanga: catanga, drcongo, zaire, dem_rep_congo
+cayman_is
+central_african_rep
+chad
+chile
+china
+colombia
+comoros: france, comoros
+congo
+cook_is
+costa_rica
+cote_d_ivoire
+croatia: usl_cr, croatia
+cuba
+cyprus
+czechia
+dem_rep_congo: drcongo, zaire, dem_rep_congo
+denmark
+djibouti: france, djibouti
+dominica: britain, dominica
+dominican_rep
+drcongo: drcongo, zaire, dem_rep_congo
+east_africa: east_africa, неуверен
+east_pakistan: east_pakistan, bangladesh
+ecuador
+egypt: uar, egypt
+el_salvador
+eq_guinea: spain, eq_guinea
+eritrea: ethiop_eritrea, eritrea
+est_ssr: est_ssr, estonia
+estonia: est_ssr, estonia
+eswatini: br_swazilend, swazilend, eswatini
+ethiop_eritrea: ethiop_eritrea, eritrea
+ethiopia
+faeroe_is
+falkland_is
+fiji: br_fiji, fiji
+finland
+fr_algeria: fr_algeria, algeria
+fr_polynesia
+france
+frg: frg, germany
+gabon
+gambia: britain, gambia
+gaza_sector: gaza_sector, palestine
+gdr: gdr, germany
+georgia: gr_ssr, georgia
+germany: frg, germanys
+ghana
+gibraltar
+gr_ssr: gr_ssr, georgia
+greece
+greenland
+grenada: britain, grenada
+guatemala
+guinea
+guinea_bissau: portugal, guinea_bissau
+guyana: britain, guyana
+haiti
+hawaii
+honduras
+hong_kong: hong_kong, china
+hungary
+iceland
+india
+indonesia
+indonesian_timor: portugal_timor, indonesian_timor, timor_leste
+iran
+iraq
+ireland
+israel
+italy
+jamaica: br_jamaica, jamaica
+japan
+jordan
+kaz_ssr: kaz_ssr, kazakhstan
+kazakhstan: kaz_ssr, kazakhstan
+kenya: east_africa, kenya
+kiribati
+kosovo: yugoslavia, serbia_and_montenegro, kosovo
+kuwait: br_kuwait, kuwait
+kyr_ssr: kyr_ssr, kyrgyzstan
+kyrgyzstan: kyr_ssr, kyrgyzstan
+laos
+lat_ssr: lat_ssr, latvia
+latvia: lat_ssr, latvia
+lebanon
+lesotho: br_lesotho, lesotho
+liberia
+libya
+liechtenstein
+lit_ssr: lit_ssr, lithuania
+lithuania: lit_ssr, lithuania
+luxembourg
+macao: macao, china
+madagascar
+malawi: east_africa, malawi
+malaya: malaya, malaysia
+malaysia: malaya, malaysia
+maldives
+mali
+malta: br_malta, malta
+marshall_is: usa, marshall_is
+mauritania
+mauritius: br_mauritius, mauritius
+mexico
+micronesia
+mold_ssr: mold_ssr, moldova
+moldova: mold_ssr, moldova
+monaco
+mongolia
+montenegro: yugoslavia, serbia_and_montenegro, montenegro
+morocco
+mozambique: portugal_mozambique, mozambique
+myanmar: burma, myanmar
+n_cyprus: cyprus, turk_cyprus, n_cyprus
+namibia: sa_namibia, namibia
+nauru: australian_nauru, nauru
+nepal
+netherlands
+new_caledonia
+new_hebrides: new_hebrides, vanuatu
+new_zealand
+nicaragua
+niger
+nigeria
+nl_new_guinea: nl_new_guinea, indonesia
+norfolk_island
+north_borneo: north_borneo, malaysia
+north_korea
+north_somalia: north_somalia, somaliland
+north_macedonia: usl_mac, north_macedonia
+north_uar: north_uar, syria
+north_vietnam: north_vietnam, vietnam
+north_yemen: north_yemen, yemen
+norway
+nz_samoa: nz_samoa, samoa
+oman: br_oman, oman
+pakistan
+palau: usa, palau
+palestine: неуверен, palestine
+panama
+papua_new_guinea: australian_new_guinea, papua_new_guinea
+paraguay
+peru
+philippines
+poland
+portugal
+portugal_angola: portugal_angola, angola
+portugal_goa: portugal_goa, india
+portugal_mozambique: portugal_mozambique, mozambique
+portugal_timor: portugal_timor, indonesian_timor, timor_leste
+puerto_rico
+qatar: br_qatar, qatar
+rodesia: br_rodesia, rodesia, zimbabwe
+romania
+russia: ussr, russia
+rwanda: rwanda_urundi, rwanda
+rwanda_urundi: rwanda_urundi, неуверен
+s_sudan: sudan, s_sudan
+sa_namibia: sa_namibia, namibia
+saint_lucia: britain, saint_lucia
+samoa: nz_samoa, samoa
+san_marino
+sao_tome_and_principe: portugal, sao_tome_and_principe
+saudi_arabia
+senegal
+serbia: yugoslavia, serbia_and_montenegro, serbia
+serbia_and_montenegro: yugoslavia, serbia_and_montenegro, serbia
+seychelles: britain, seychelles
+sierra_leone: britain, sierra_leone
+singapore: br_singapore, singapore
+slovakia
+slovenia: usl_slov, slovenia
+solomon_is: britain, solomon_is
+somalia
+somaliland: north_somalia, somaliland
+south_africa
+south_arabia: south_arabia, south_yemen, yemen
+south_korea
+south_vietnam: south_vietnam, vietnam
+south_yemen: south_arabia, south_yemen, yemen
+spa_seuta
+spain
+spainish_sahara: spainish_sahara, w_sahara
+sri_lanka
+st_kitts_and_nevis: britain, st_kitts_and_nevis
+st_vin_and_gren: britain, st_vin_and_gren
+sudan
+suriname: netherlands, suriname
+swazilend: br_swazilend, swazilend, eswatini
+sweden
+switzerland
+syria: north_uar, syria
+taiwan
+taj_ssr: taj_ssr, tajikistan
+tajikistan; taj_ssr, tajikistan
+tanzania: east_africa, tanzania
+thailand
+timor_leste: portugal_timor, indonesian_timor, timor_leste
+togo
+tonga: br_tonga, tonga
+trinidad_and_tobago: britain, trinidad_and_tobago
+tunisia
+tur_ssr: tur_ssr, turkmenistan
+turk_cyprus: cyprus, turk_cyprus, n_cyprus
+turkey
+turkmenistan: tur_ssr, turkmenistan
+uar: uar, egypt
+tuvalu: britain, tuvalu
+uganda: east_africa, uganda
+ukr_ssr: ukr_ssr, ukraine
+ukraine: ukr_ssr, ukraine
+united_arab_emirates: br_trucial_oman, united_arab_emirates
+uruguay
+usa
+usl_bos: usl_bos, bosnia_and_herz
+usl_cr: usl_cr, croatia
+usl_mac: usl_mac, north_macedonia
+usl_slov: usl_slov, slovenia
+ussr: ussr, russia
+uzb_ssr: uzb_ssr, uzbekistan
+uzbekistan: uzb_ssr, uzbekistan
+vanuatu: new_hebrides, vanuatu
+vatican
+venezuela
+vietnam: north_vietnam, vietnam
+w_sahara: spainish_sahara, w_sahara
+west_jordan_coast: west_jordan_coast, palestine
+yemen: north_yemen, yemen
+yugoslavia: yugoslavia, serbia_and_montenegro, serbia
+zaire: drcongo, zaire, dem_rep_congo
+zambia: br_rodesia, zambia
+zimbabwe: br_rodesia, rodesia, zimbabwe

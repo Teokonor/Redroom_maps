@@ -1,0 +1,258 @@
+afghanistan
+akrotiri (на юге кипра)
+albania
+algeria
+american_samoa
+andorra
+angola
+anguilla (крошечный островок на самом севере Антильских, присоединить к Великобритании)
+antarctica
+antigua_and_barb
+argentina
+armenia
+aruba (остров возле Венесуэлы, часть Нидерландов)
+ashmore_and_cartier_is (островок между Индонезией и Австралией, супер мелкий, удалить)
+australia
+austria
+azerbaijan
+bahamas
+bahrain
+baikonur (без геометрии, удалить)
+bajo_nuevo_bank (островок в Карибах между Ямайкой и Никарагуа, супер мелкий, удалить)
+bangladesh
+barbados
+belarus
+belgium
+belize
+benin
+bermuda (Бермудские острова к востоку от Флориды, владения Великобритании)
+bhutan
+bir_tawil (без геометрии, удалить)
+bolivia
+bosnia_and_herz
+botswana
+br_indian_ocean_ter (островок к югу от Шри-Ланки, владения Великобритании)
+brazil
+brazilian_i (кусочек на границе Бразилии, Уругвая и Аргентины, присоединить к Бразилии)
+british_virgin_is (Карибы)
+brunei
+bulgaria
+burkina_faso
+burundi
+cabo_verde
+cambodia
+cameroon
+canada
+cayman_is (остров между Кубой, Ямайкой и Гондурасом, владения Великобритании)
+central_african_rep
+chad
+chile
+china
+clipperton_i
+colombia (островок на юго-запад от Мексики, супер мелкий, удалить)
+comoros
+congo
+cook_is
+coral_sea_is (островок у берегов Австралии, супер мелкий, удалить)
+costa_rica
+croatia
+cuba
+curasao (остров возле Венесуэлы, часть Нидерландов)
+cyprus
+cyprus_u_n_buffer_zone
+czechia
+cote_d_ivoire
+dem_rep_congo
+denmark
+dhekelia (на западе кипра)
+djibouti
+dominica
+dominican_rep
+ecuador
+egypt
+el_salvador
+eq_guinea
+eritrea
+estonia
+eswatini
+ethiopia
+faeroe_is (большие острова к северу от Великобритании, подчинены Дании примерно так же как Гренландия)
+falkland_is (владение Великобритании)
+fiji
+finland
+fr_polynesia 
+fr_s_antarctic_lands (в Индийском океане у берегов Антарктиды, строго на юг от Шри-Ланки, переименовать в Кергелен, объединить с Францией)
+france
+gabon
+gambia
+georgia
+germany
+ghana
+gibraltar (владение Великобритании)
+greece
+greenland (владение Дании)
+grenada
+guam (острова в Тихом океане между Японией и Папуа-Новой Гвинеей, владения США)
+guatemala
+guernsey (остров в западной части Ла-Манша, часть Великобритании)
+guinea
+guinea_bissau
+guyana
+haiti
+heard_i_and_mcdonald_is (в Индийском океане у берегов Антарктиды, строго на юг от Шри-Ланки, объединить с Австралией)
+honduras
+hong_kong
+hungary
+iceland
+india
+indian_ocean_ter (остров к югу от Индонезии, часть Австралии)
+indonesia
+iran
+iraq
+ireland
+isle_of_man (большой остров между Британией и Северной Ирландией, просто часть Великобритании)
+israel
+italy
+jamaica
+japan
+jersey (остров в западной части Ла-Манша, часть Великобритании)
+jordan
+kazakhstan
+kenya
+kiribati
+kosovo
+kuwait
+kyrgyzstan
+laos
+latvia
+lebanon
+lesotho
+liberia
+libya
+liechtenstein
+lithuania
+luxembourg
+macao
+madagascar
+malawi
+malaysia
+maldives
+mali
+malta
+marshall_is
+mauritania
+mauritius
+mexico
+micronesia
+moldova
+monaco
+mongolia
+montenegro
+montserrat (карибский остров возле Антигуа и Барбуды, владение Великобритании)
+morocco
+mozambique
+myanmar
+n_cyprus
+n_mariana_is (острова в Тихом океане между Японией и Папуа-Новой Гвинеей, владения США)
+namibia
+nauru
+nepal
+netherlands
+new_caledonia (острова в Тихом океане, довольно близко к Австралии, владение Франции)
+new_zealand
+nicaragua
+niger
+nigeria
+niue (крошечный остров в Тихом океане, между Самоа, Тонгой и островами Кука, владение Новой Зеландии)
+norfolk_island (ничейный остров между Новой Каледонией и Новой Зеландией, пусть будет)
+north_korea
+north_macedonia
+norway
+oman
+pakistan
+palau
+palestine
+panama
+papua_new_guinea
+paraguay
+peru
+philippines
+pitcairn_is (остров в Тихом океане, на равном расстоянии от Калифорнии, Чили и Антарктиды, владение Великобритании)
+poland
+portugal
+puerto_rico (владение США)
+qatar
+romania
+russia
+rwanda
+s_geo_and_the_is (остров недалеко от когтя Антарктиды, владение Великобритании)
+s_sudan
+saint_helena (острова в Южной Атлантике, владение Великобритании)
+saint_lucia
+samoa
+san_marino
+saudi_arabia
+scarborough_reef (супер мелкий остров к западу от Филиппин, удалить)
+senegal
+serbia
+serranilla_bank (островок в Карибах между Ямайкой и Никарагуа, супер мелкий, удалить)
+seychelles
+siachen_glacier (территория на границе Пакистана, Индии и Китая, но не Кашмир, можно просто присоединить к Пакистану (в атласе геокрон это часть Пакистана)
+sierra_leone
+singapore
+sint_maarten (крошечный островок на самом севере Антильских, удалить)
+slovakia
+slovenia
+solomon_is
+somalia
+somaliland
+south_africa
+south_korea
+southern_patagonian_ice_field (та самая странная штука на границе Аргентины и Бразилии, присоединить к Аргентине во всех временных точках)
+spain
+spratly_is (супер мелкий остров к западу от Филиппин, удалить)
+sri_lanka
+st_barthelemy (крошечный островок на самом севере Антильских, удалить)
+st_martin (крошечный островок на самом севере Антильских, удалить)
+st_kitts_and_nevis
+st_pierre_and_miquelon (без геометрии, удалить)
+st_vin_and_gren
+sudan
+suriname
+sweden
+switzerland
+syria
+sao_tome_and_principe
+taiwan
+tajikistan
+tanzania
+thailand
+timor_leste
+togo
+tonga
+trinidad_and_tobago
+tunisia
+turkey
+turkmenistan
+turks_and_caicos_is (небольшой остров между Багамами и Гаити, владение Великобритании, в районе 1970 становится частью Багамов, когда те становятся частью Великобритании)
+tuvalu
+u_s_minor_outlying_is (маленький остров в Тихом океане, сильно к югу от Камчатки, владение США)
+u_s_virgin_is (островки чуть к западу от Пуэрто-Рико, присоединить к США)
+uganda
+ukraine
+united_arab_emirates
+united_kingdom
+united_states_of_america
+uruguay
+usnb_guantanamo_bay (база США на Кубе, присоединить к США)
+uzbekistan
+vanuatu
+vatican
+venezuela
+vietnam
+w_sahara
+wallis_and_futuna_is (острова в Тихом океане около Самоа, владение Франции)
+yemen
+zambia
+zimbabwe
+aland (большой остров между Финляндией и Швецией, присоединить к Финляндии)

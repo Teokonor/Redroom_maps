@@ -1,0 +1,198 @@
+surinam 1975
+canada 1950
+usa 1865
+mexico 1823
+belize 1981
+guatemala 1839
+honduras 1838
+salvador 1839
+costa_rica 1838
+panama 1903
+antigua_and_barb 1981
+br_antilles1981 1981 1982
+nl_caribean1633 1633 1647
+bahamas 1973
+barbados 1966
+colombia 1830
+venezuela 1830
+guyana 1966
+fr_guyane1604 1604 1606
+equador 1830
+peru 1821
+bolivia 1825
+paraguay 1813
+brazil 1822
+uruguay 1828
+argentina 1816
+chile 1818
+cuba 1902
+jamaica 1962
+haiti 1803
+dominican_rep 1844
+us_puerto_rico 1898
+fr_antilles1635 1635 1678
+dominica 1978
+saint_lucia 1979
+br_falklands 1833
+br_s_georgia 1775
+grenada 1974
+trinidad_and_tobago 1962
+st_vin_and_gren 1979
+st_kitts_and_nevis 1983
+br_antilles 1983
+br_belize 1798 1980
+nl_surinam1815 1815 1939
+br_antilles1978 1978 1978
+br_antilles1979 1979 1980
+br_antilles1962 1962 1973
+br_bahamas1718 1718 1972
+br_turks 1973
+br_antilles1974 1974 1977
+br_barbados1707 1707 1965
+br_guyana1815 1815 1965
+br_antilles1707 1707 1961
+br_jamaica1707 1707 1961
+br_labrador 1870 1949
+colombian_panama1821 1821 1829
+us_cuba 1898 1901
+sp_puerto_rico1508 1508 1588
+sp_cuba1511 1511 1588
+canada1871 1871 1949
+br_columbia 1870 1870
+br_canada1867 1867 1869
+canada1867 1867 1870
+br_canada1791 1791 1866
+usa1860 1860 1864
+csa1860 1860 1864
+usa1845 1845 1859
+usa1819 1819 1844
+texas 1836 1844
+east_haiti 1821 1843
+central_america1838 1838 1838
+nicaragua 1838
+central_america1823 1823 1837
+mexico1821 1821 1822
+new_spain1522 1522 1528
+sp_s_domingo1808 1808 1820
+colombia1819 1819 1829
+sp_peru1821 1821 1824
+braz_uruguay1822 1822 1827
+prt_brazil1654 1654 1821
+braz_uruguay1816 1816 1821
+sp_peru1818 1818 1820
+sp_peru1816 1816 1817
+new_granada 1718 1818
+sp_peru1813 1813 1815
+sp_peru1749 1749 1812
+argentine_falklands 1816 1832
+sp_falklands 1766 1815
+br_guyana1799 1799 1814
+usa1803 1803 1818
+sp_florida1783 1783 1818
+usa1783 1783 1802
+fr_louisiana 1800 1802
+fr_s_domingo1803 1795 1807
+fr_haiti1795 1795 1802
+br_north_america 1763 1790
+sp_s_domingo1697 1697 1794
+sp_louisiana 1763 1799
+nl_guyana1667 1667 1798
+new_england1707 1707 1782
+br_florida1763 1763 1782
+sp_florida1565 1565 1588
+new_scotland 1713 1762
+new_france1604 1604 1606
+br_hudson_bay 1707 1762
+sp_peru1718 1718 1748
+mapuche 1299 1748
+fr_s_domingo1697 1697 1767
+sp_san_salvador1492 1492 1588
+sp_peru1589 1589 1717
+prt_sacramento1713 1713 1776
+sp_sacramento 1704 1712
+prt_sacramento1681 1681 1703
+en_hudson_bay 1668 1706
+new_england1664 1664 1706
+en_antilles 1632
+en_barbados 1625 1706
+en_jamaica1655 1655 1706
+sp_hispaniola1496 1496 1588
+new_netherlands1655 1655 1706
+maryland 1634 1706
+virginia 1607 1663
+new_netherlands1613 1613 1647
+new_sweden 1638 1654
+new_england1620 1620 1663
+nl_guyana1627 1627 1647
+en_guyana1609 1609 1666
+prt_brazil1640 1640 1653
+nl_recife 1630 1639
+sp_jamaica1509 1509 1588
+br_cayman 1707
+en_cayman 1655 1706
+sp_cayman1511 1511 1588
+sp_brazil1580 1580 1588
+prt_brazil1567 1567 1579
+prt_brazil1532 1532 1566
+fr_antarctique 1554 1566
+new_castile 1533 1541
+inca1493 1493 1532
+new_spain1521 1521 1521
+castilla_de_oro 1510 1521
+michoacan 1374 1521
+new_spain1520 1520 1520
+yopitzinco 1459 1520
+tututepec 1375 1520
+aztec 1325 1519
+tlaxcala 1348 1519
+inca1470 1470 1492
+aymara 1199 1492
+inca1349 1349 1469
+chimor 1099 1469
+tiwanaku 499 999
+huari 499 899
+mayapan 1185 1440
+chichen_itza 986 1184
+toltec 949 1177
+mayas 249 899
+zapotec 599 899
+teotihuacan 99 759
+olmec -1200 -350
+new_spain1529 1529 1588
+nl_caribean1648 1648 1809
+fr_antilles1679 1679 1767
+fr_antilles1768 1768 1939
+fr_antilles1940 1940 1941
+fr_antilles1942 1942 1943
+fr_antilles 1944
+fr_guyane1607 1607 1678
+fr_guyane1679 1679 1767
+fr_guyane1768 1768 1939
+fr_guyane1940 1940 1941
+fr_guyane1942 1942 1943
+fr_guyane 1944
+nl_caribean1810 1810 1813
+nl_caribean1814 1814 1939
+nl_caribean1940 1940 1943
+nl_caribean1944 1944 1944
+nl_caribean 1945
+nl_surinam1940 1940 1943
+nl_surinam1944 1944 1944
+nl_surinam 1945 1974
+new_spain1589 1589 1820
+sp_brazil1589 1589 1639
+new_france1679 1679 1762
+sp_peru1542 1542 1588
+nl_guyana1648 1648 1666
+colombian_panama1830 1830 1902
+sp_puerto_rico1589 1589 1897
+sp_hispaniola1589 1589 1696
+sp_jamaica1589 1589 1654
+sp_cuba1589 1589 1897
+sp_cayman1589 1589 1654
+sp_san_salvador1589 1589 1717
+sp_florida1589 1589 1762
+new_france1607 1607 1678
+fr_s_domingo1768 1768 1794
+new_netherlands1648 1648 1654
+canada

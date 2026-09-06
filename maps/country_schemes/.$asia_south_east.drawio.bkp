@@ -1,0 +1,73 @@
+<mxfile host="Electron">
+  <diagram name="Страница-1" id="CDSHgtXwf8ooC8RbqATM">
+    <mxGraphModel dx="-4094" dy="832" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="D5dT3fQKRYTSniBf834R-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="myanmar&lt;div&gt;1990-&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="5240" y="-350" as="geometry" />
+        </mxCell>
+        <mxCell id="D5dT3fQKRYTSniBf834R-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="thailand" vertex="1">
+          <mxGeometry height="60" width="120" x="5000" y="-280" as="geometry" />
+        </mxCell>
+        <mxCell id="D5dT3fQKRYTSniBf834R-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="laos" vertex="1">
+          <mxGeometry height="60" width="120" x="5000" y="-210" as="geometry" />
+        </mxCell>
+        <mxCell id="D5dT3fQKRYTSniBf834R-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="cambodia" vertex="1">
+          <mxGeometry height="60" width="120" x="5000" y="-140" as="geometry" />
+        </mxCell>
+        <mxCell id="D5dT3fQKRYTSniBf834R-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="vietnam&lt;div&gt;1976-&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="5160" y="-70" as="geometry" />
+        </mxCell>
+        <mxCell id="D5dT3fQKRYTSniBf834R-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="philippines" vertex="1">
+          <mxGeometry height="60" width="120" x="5000" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="D5dT3fQKRYTSniBf834R-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="malaysia" vertex="1">
+          <mxGeometry height="60" width="120" x="5000" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="D5dT3fQKRYTSniBf834R-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="brunei&lt;div&gt;1984-&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="5200" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="D5dT3fQKRYTSniBf834R-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="singapore" vertex="1">
+          <mxGeometry height="60" width="120" x="5000" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="D5dT3fQKRYTSniBf834R-11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="indonesia" vertex="1">
+          <mxGeometry height="60" width="120" x="5000" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="D5dT3fQKRYTSniBf834R-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="east_timor&lt;div&gt;2000-&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="5280" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="D5dT3fQKRYTSniBf834R-13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="papua_new_guinea" vertex="1">
+          <mxGeometry height="60" width="120" x="5000" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="D5dT3fQKRYTSniBf834R-16" edge="1" parent="1" source="D5dT3fQKRYTSniBf834R-14" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="D5dT3fQKRYTSniBf834R-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D5dT3fQKRYTSniBf834R-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="indonesian_timor&lt;div&gt;-1999&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="5000" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="D5dT3fQKRYTSniBf834R-18" edge="1" parent="1" source="D5dT3fQKRYTSniBf834R-17" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="D5dT3fQKRYTSniBf834R-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D5dT3fQKRYTSniBf834R-17" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="br_brunei&lt;div&gt;-1983&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="5000" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="D5dT3fQKRYTSniBf834R-20" edge="1" parent="1" source="D5dT3fQKRYTSniBf834R-19" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="D5dT3fQKRYTSniBf834R-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D5dT3fQKRYTSniBf834R-19" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="north_vietnam&lt;div&gt;-1975&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="5000" y="-70" as="geometry" />
+        </mxCell>
+        <mxCell id="D5dT3fQKRYTSniBf834R-22" edge="1" parent="1" source="D5dT3fQKRYTSniBf834R-21" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" target="D5dT3fQKRYTSniBf834R-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D5dT3fQKRYTSniBf834R-21" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="south_vietnam&lt;div&gt;-1975&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="5000" as="geometry" />
+        </mxCell>
+        <mxCell id="D5dT3fQKRYTSniBf834R-23" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="60" width="120" x="5000" y="-350" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

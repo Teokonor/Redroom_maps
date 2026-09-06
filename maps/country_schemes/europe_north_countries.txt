@@ -1,0 +1,40 @@
+sweden 1523
+norway 1945
+denmark 1945
+iceland 1945
+den_greenland 1945
+us_iceland 1941 1944
+germ_denmark 1940 1944
+germ_norway 1940 1944
+us_greenland 1941 1944
+br_iceland 1940 1940
+greenland 1940 1940
+den_greenland1916 1916 1939
+den_iceland 1380 1939
+denmark849 849 1939
+norway1905 1905 1939
+den_greenland1721 1721 1915
+eskimos 1299 1915
+sw_norway1814 1814 1904
+den_norway1380 1380 1813
+den_sweden 1397 1522
+sweden1323 1323 1396
+norway1343 1343 1379
+norw_iceland 1343 1379
+sw_norway1323 1323 1342
+sw_iceland1323 1323 1342
+sweden969 969 1322
+sami -2500 1322
+sw_norway1319 1319 1322
+sw_iceland1319 1319 1322
+norw_iceland1262 1262 1318
+norway1035 1035 1318
+iceland882 882 1261
+den_norway1028 1028 1034
+norway872 872 1027
+swedes -100 968
+norsemen -300 871
+danes 499 848
+norwegian_greenland 984 1429
+old_greenland -2580000 983
+denmark

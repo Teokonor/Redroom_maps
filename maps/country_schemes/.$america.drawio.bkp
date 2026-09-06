@@ -1,0 +1,34 @@
+<mxfile host="Electron">
+  <diagram name="Страница-1" id="E6yRqE042UyiTLATIYpS">
+    <mxGraphModel dx="-2207" dy="1826" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="kvXCxqpQAsuQkV4vHJyU-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="60" width="120" x="3200" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="kvXCxqpQAsuQkV4vHJyU-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="canada" vertex="1">
+          <mxGeometry height="60" width="120" x="3200" y="-830" as="geometry" />
+        </mxCell>
+        <mxCell id="kvXCxqpQAsuQkV4vHJyU-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="usa" vertex="1">
+          <mxGeometry height="60" width="120" x="3200" y="-760" as="geometry" />
+        </mxCell>
+        <mxCell id="kvXCxqpQAsuQkV4vHJyU-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="mexico" vertex="1">
+          <mxGeometry height="60" width="120" x="3200" y="-690" as="geometry" />
+        </mxCell>
+        <mxCell id="kvXCxqpQAsuQkV4vHJyU-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="belize" vertex="1">
+          <mxGeometry height="60" width="120" x="3200" y="-620" as="geometry" />
+        </mxCell>
+        <mxCell id="kvXCxqpQAsuQkV4vHJyU-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="guatemala" vertex="1">
+          <mxGeometry height="60" width="120" x="3200" y="-550" as="geometry" />
+        </mxCell>
+        <mxCell id="kvXCxqpQAsuQkV4vHJyU-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="honduras" vertex="1">
+          <mxGeometry height="60" width="120" x="3200" y="-480" as="geometry" />
+        </mxCell>
+        <mxCell id="kvXCxqpQAsuQkV4vHJyU-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="salvador" vertex="1">
+          <mxGeometry height="60" width="120" x="3200" y="-410" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
