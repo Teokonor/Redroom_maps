@@ -1,6 +1,6 @@
 <mxfile host="Electron">
   <diagram name="Страница-1" id="HTloei1NfvwkCg9c5HQk">
-    <mxGraphModel dx="21349" dy="3536" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="21639" dy="3694" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -2450,6 +2450,9 @@
         </mxCell>
         <mxCell id="rkzrKS90lnJGiylEJtkY-294" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="sistan862&lt;div&gt;862-900&lt;/div&gt;" vertex="1">
           <mxGeometry height="60" width="120" x="-5680" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="aCKVzcfvKKC8R0npvjU0-1" edge="1" parent="1" source="rkzrKS90lnJGiylEJtkY-298" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="rkzrKS90lnJGiylEJtkY-226">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="rkzrKS90lnJGiylEJtkY-298" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="samanid935&lt;div&gt;935-997&lt;/div&gt;" vertex="1">
           <mxGeometry height="60" width="120" x="-4920" y="200" as="geometry" />

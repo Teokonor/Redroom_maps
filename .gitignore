@@ -2,6 +2,7 @@ __pycache__
 frontend/package-lock.json
 maps/archive
 maps/pictures
+maps/temp
 venv
 видео
 ~$Statictics.xlsx

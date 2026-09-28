@@ -1,6 +1,6 @@
 <mxfile host="Electron">
   <diagram name="Страница-1" id="TB8hva9WtcPGK410KNci">
-    <mxGraphModel dx="13356" dy="3322" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="13749" dy="3536" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1509,7 +1509,7 @@
             <mxPoint x="215.64711626838232" y="-1250" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="sO1c8JcIV0tilUNCYSrs-96" parent="1" style="rounded=0;whiteSpace=wrap;html=1;opacity=90;" value="wolof&lt;div&gt;1351-1540&lt;/div&gt;" vertex="1">
+        <mxCell id="sO1c8JcIV0tilUNCYSrs-96" parent="1" style="rounded=0;whiteSpace=wrap;html=1;opacity=90;" value="wolof&lt;div&gt;1351-1549&lt;/div&gt;" vertex="1">
           <mxGeometry height="60" width="120" x="-2959.999999999999" y="-1280" as="geometry" />
         </mxCell>
         <mxCell id="sO1c8JcIV0tilUNCYSrs-100" edge="1" parent="1" source="sO1c8JcIV0tilUNCYSrs-98" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="EAonO4EHT1mtflPolGR0-124">
@@ -1975,7 +1975,7 @@
         <mxCell id="HoViwcV-2OO_WkCsYcFM-113" edge="1" parent="1" source="HoViwcV-2OO_WkCsYcFM-114" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="HoViwcV-2OO_WkCsYcFM-108">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="HoViwcV-2OO_WkCsYcFM-114" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="tlemcen1238&lt;div&gt;1238-1488&lt;/div&gt;" vertex="1">
+        <mxCell id="HoViwcV-2OO_WkCsYcFM-114" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="tlemcen1238&lt;div&gt;1238-1423&lt;/div&gt;" vertex="1">
           <mxGeometry height="60" width="120" x="-3320" y="-2120" as="geometry" />
         </mxCell>
         <mxCell id="HoViwcV-2OO_WkCsYcFM-115" edge="1" parent="1" source="HoViwcV-2OO_WkCsYcFM-116" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" target="HoViwcV-2OO_WkCsYcFM-75">
@@ -2664,12 +2664,12 @@
             <mxPoint x="-3500" y="-2240" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="HoViwcV-2OO_WkCsYcFM-338" edge="1" parent="1" source="HoViwcV-2OO_WkCsYcFM-333" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HoViwcV-2OO_WkCsYcFM-58">
+        <mxCell id="HoViwcV-2OO_WkCsYcFM-338" edge="1" parent="1" source="HoViwcV-2OO_WkCsYcFM-363" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="HoViwcV-2OO_WkCsYcFM-58">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="-1789.2001953125" y="-2270" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="HoViwcV-2OO_WkCsYcFM-333" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="libyan1000m&lt;div&gt;(-1000)-1543&lt;/div&gt;" vertex="1">
+        <mxCell id="HoViwcV-2OO_WkCsYcFM-333" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="libyan1000m&lt;div&gt;(-1000)-669&lt;/div&gt;" vertex="1">
           <mxGeometry height="60" width="120" x="-10880" y="-2250" as="geometry" />
         </mxCell>
         <mxCell id="HoViwcV-2OO_WkCsYcFM-336" edge="1" parent="1" source="HoViwcV-2OO_WkCsYcFM-335" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" target="HoViwcV-2OO_WkCsYcFM-215">

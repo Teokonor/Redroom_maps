@@ -1,6 +1,6 @@
 <mxfile host="Electron">
   <diagram name="Страница-1" id="EXFesr4EqY17CFmNs8Ey">
-    <mxGraphModel dx="3947" dy="626" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="4149" dy="736" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -742,7 +742,7 @@
         <mxCell id="7y35zLyu3KPF1TEkSojL-183" edge="1" parent="1" source="7y35zLyu3KPF1TEkSojL-180" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="7y35zLyu3KPF1TEkSojL-178">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="7y35zLyu3KPF1TEkSojL-180" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="arborea&lt;div&gt;851-1478&lt;/div&gt;" vertex="1">
+        <mxCell id="7y35zLyu3KPF1TEkSojL-180" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="arborea&lt;div&gt;851-1323&lt;/div&gt;" vertex="1">
           <mxGeometry height="60" width="120" x="920" y="360" as="geometry" />
         </mxCell>
         <mxCell id="7y35zLyu3KPF1TEkSojL-184" edge="1" parent="1" source="7y35zLyu3KPF1TEkSojL-181" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" target="7y35zLyu3KPF1TEkSojL-178">
