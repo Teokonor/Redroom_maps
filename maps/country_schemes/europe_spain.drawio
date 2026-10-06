@@ -1,6 +1,6 @@
 <mxfile host="Electron">
   <diagram name="Страница-1" id="klzVDxQrz3goXzbA8ga5">
-    <mxGraphModel dx="8149" dy="1136" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="7947" dy="1026" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -847,7 +847,7 @@
         <mxCell id="AiQhhoOG-z-JA3x_HYHf-171" edge="1" parent="1" source="AiQhhoOG-z-JA3x_HYHf-170" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="AiQhhoOG-z-JA3x_HYHf-166">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="AiQhhoOG-z-JA3x_HYHf-170" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="umayyad_iberia&lt;div&gt;711-719&lt;/div&gt;" vertex="1">
+        <mxCell id="AiQhhoOG-z-JA3x_HYHf-170" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="umayyad_iberia&lt;div&gt;712-719&lt;/div&gt;" vertex="1">
           <mxGeometry height="60" width="120" x="-3840" y="500" as="geometry" />
         </mxCell>
         <mxCell id="AiQhhoOG-z-JA3x_HYHf-173" edge="1" parent="1" source="AiQhhoOG-z-JA3x_HYHf-172" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" target="AiQhhoOG-z-JA3x_HYHf-166">
@@ -1092,6 +1092,12 @@
         </mxCell>
         <mxCell id="dYeiUaOZHR9RCOnaTDga-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="almohad_spain1153&lt;div&gt;1153-1154&lt;/div&gt;" vertex="1">
           <mxGeometry height="60" width="120" x="1640.000000000001" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="KWkK_W7Kx7d0AHHcKtJQ-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="cantabri&lt;div&gt;457-572&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="-4720" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="KWkK_W7Kx7d0AHHcKtJQ-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="vascons&lt;div&gt;457-624&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="-4720" y="710" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
