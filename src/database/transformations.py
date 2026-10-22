@@ -10,10 +10,16 @@ from .abs import Base
 class TransformationTypes(str, BaseEnum):
     SPLIT = 'split'
     MERGE = 'merge'
+    SPLITMERGE = 'splitmerge'
     RENAME = 'rename'
     ANNEXATION = 'annexation'
     INDEPENDENCE = 'independence'
     TRANSFER = 'transfer'
+    STATE = 'state'
+    DESTATE = 'destate'
+    PARENT = 'parent'
+    REPLACE = 'replace'
+    NOTYPE = 'notype'
 
 
 class TransformationModel(Base):
