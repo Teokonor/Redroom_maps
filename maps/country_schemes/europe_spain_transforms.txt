@@ -129,12 +129,12 @@ abbasid_iberia cordoba_emirate ___ 756
 umayyad_iberia umayyad_iberia719 MERGE 719
 visigoth624 umayyad_iberia719 MERGE 719
 visigoth623 visigoth624 MERGE 624
-vascons563 visigoth624 MERGE 624
+vascons visigoth624 MERGE 624
 visigoth585 visigoth623 MERGE 623
 erm_iberia552 visigoth623 MERGE 623
 visigoth552 visigoth585 MERGE 585
 suebi visigoth585 MERGE 585
-cantabri502 vascons563 ___ 563
+cantabri502 vascons ___ 563
 visigoth476 visigoth552 SPLIT 552
 visigoth476 erm_iberia552 SPLIT 552
 vascons476 cantabri502 ___ 502

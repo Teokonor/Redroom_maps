@@ -67,7 +67,7 @@ moscow1462 moscow1478 MERGE 1478
 crimea1774 russia1783 MERGE 1783
 ott_crimea1517 crimea1774 ___ 1774
 ott_crimea1475 ott_crimea1517 ___ 1517
-gh_moscow1383 moscow1462 ___ 1462
+gh_moscow1380 moscow1462 ___ 1462
 crimea1441 ott_crimea1475 ___ 1475
 gh_bulgaria1380 kazan ___ 1438
 golden_horde1380 golden_horde1441 SPLIT 1441
@@ -77,7 +77,7 @@ lithuania1318 lithuania1362 MERGE 1362
 ru_baltic1721 ru_baltic ___ 1783
 golden_horde1259 golden_horde1380 MERGE 1380
 gh_ryazan gh_ryazan1380 ___ 1380
-gh_moscow gh_moscow1383 MERGE 1383
+gh_moscow gh_moscow1380 MERGE 1383
 white_horde golden_horde1380 MERGE 1380
 gh_wallachia moldavia ___ 1362
 wallachia ott_wallachia1418 ___ 1418
@@ -151,7 +151,7 @@ mong_vladimir gh_vladimir ___ 1259
 gh_vladimir gh_north_rus1263 SPLIT 1263
 gh_vladimir gh_moscow SPLIT 1263
 vladimir mong_vladimir ___ 1239
-gh_north_rus1263 gh_moscow1383 MERGE 1383
+gh_north_rus1263 gh_moscow1380 MERGE 1383
 volg_bulgaria mong_bulgaria ___ 1237
 mong_bulgaria gh_bulgaria1259 ___ 1259
 bulgars volg_bulgaria ___ 922
@@ -159,8 +159,8 @@ old_bulgaria bulgars SPLIT 670
 old_bulgaria bulgaria670 SPLIT 670
 bulgaria670 byz_bulgaria1018 ___ 1018
 dacians rm_dacia ___ 106
-rm_dacia dacia270 ___ 270
-dacia270 hunian_dacia ___ 432
+rm_dacia dacia271 ___ 270
+dacia271 hunian_dacia ___ 432
 hunian_dacia dacia453 SPLIT 453
 hunian_dacia gepids SPLIT 453
 gepids avarian_dacia567 MERGE 567

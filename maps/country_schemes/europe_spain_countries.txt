@@ -100,7 +100,7 @@ abbasid_iberia 750 755
 umayyad_iberia 710 718
 visigoth624 624 718
 visigoth623 623 623
-vascons563 563 623
+vascons 563 623
 visigoth585 585 622
 erm_iberia552 552 622
 visigoth552 552 584

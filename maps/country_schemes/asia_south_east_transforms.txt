@@ -139,9 +139,9 @@ shan1527 burma1555 MERGE 1555
 burma1539 burma1555 MERGE 1555
 pegu1287 burma1539 MERGE 1539
 taungoo1486 burma1539 MERGE 1539
-ava1477 shan1527 MERGE 1527
+ava1486 shan1527 MERGE 1527
 shan1499 shan1527 MERGE 1527
-ava ava1477 SPLIT 1486
+ava ava1486 SPLIT 1486
 ava taungoo1486 SPLIT 1486
 ming_vietnam vietnam1426 ___ 1426
 vietnam938 ming_vietnam ___ 1407

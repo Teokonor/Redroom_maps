@@ -63,7 +63,7 @@ ott_crimea1475 1475 1516
 crimea1441 1441 1474
 golden_horde1380 1380 1440
 gh_ryazan1380 1380 1440
-gh_moscow1383 1383 1461
+gh_moscow1380 1383 1461
 lithuania1318 1318 1361
 ru_baltic1721 1721 1782
 golden_horde1259 1259 1379
@@ -136,7 +136,7 @@ old_bulgaria 631 669
 bulgaria670 670 1017
 dacians -300 105
 rm_dacia 106 269
-dacia270 270 431
+dacia271 270 431
 hunian_dacia 432 452
 gepids 453 566
 dacia453 453 559
