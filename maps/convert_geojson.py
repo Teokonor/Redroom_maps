@@ -1,8 +1,21 @@
-
 import json
 from pathlib import Path
 
 from topojson import Topology
+
+
+# ААААААААААААААААААААААААААААААААААААААААААА
+# ВАЖНООО!!!!!!!!!!!!
+
+# Для корректной работы скрипта нужно зайти в venv/Lib/site-packages/topojson/core/dedup.py
+
+# И в нём в функции def _direct_arcs(self, array_bk, array_bk_parts, first_of_part, arcs)
+# Закомментировать строку
+# forward |= np.repeat(n_arcs == 1, n_arcs)
+# В моей версии это строка 136
+
+# (Она принудительно ставит положительное направление для одиночных дуг, что ломает направления обхода)
+
 
 
 # Папка, в которой лежит этот скрипт.
