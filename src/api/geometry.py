@@ -7,7 +7,8 @@ map_router = APIRouter(prefix='/map')
 
 @map_router.get('/geometry/{year}')
 def get_map_geometry(year: int):
-    file_path = (PROJECT_DIR / 'maps' / f'{year}.geojson').resolve()
+    filename = f"_{abs(year)}.topojson" if year < 0 else f"{year}.topojson"
+    file_path = (PROJECT_DIR / 'maps' / filename).resolve()
     if not file_path.exists():
         return { "error": "File not found" }
     return FileResponse(path=file_path, media_type="application/json")
