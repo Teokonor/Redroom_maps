@@ -4,22 +4,81 @@ from pathlib import Path
 from topojson import Topology
 
 
-# ААААААААААААААААААААААААААААААААААААААААААА
-# ВАЖНООО!!!!!!!!!!!!
-
-# Для корректной работы скрипта нужно зайти в venv/Lib/site-packages/topojson/core/dedup.py
-
-# И в нём в функции def _direct_arcs(self, array_bk, array_bk_parts, first_of_part, arcs)
-# Закомментировать строку
-# forward |= np.repeat(n_arcs == 1, n_arcs)
-# В моей версии это строка 136
-
-# (Она принудительно ставит положительное направление для одиночных дуг, что ломает направления обхода)
-
-
-
 # Папка, в которой лежит этот скрипт.
 BASE_DIR = Path(__file__).resolve().parent
+
+
+def _ring_area(ring: list[list[float]]) -> float:
+    """Возвращает площадь кольца со знаком."""
+    return sum(
+        x0 * y1 - x1 * y0
+        for (x0, y0), (x1, y1) in zip(ring, ring[1:])
+    ) / 2
+
+
+def _stitch_ring(
+    arcs: list[list[list[float]]],
+    ring: list[int],
+) -> list[list[float]]:
+    """Собирает координаты кольца из ссылок на дуги TopoJSON."""
+    points: list[list[float]] = []
+
+    for index, arc_index in enumerate(ring):
+        arc = arcs[arc_index if arc_index >= 0 else ~arc_index]
+
+        if arc_index < 0:
+            arc = arc[::-1]
+
+        # Первая точка следующей дуги совпадает с последней точкой
+        # предыдущей, поэтому её нужно пропустить.
+        if index:
+            arc = arc[1:]
+
+        points.extend(arc)
+
+    return points
+
+
+def _fix_polygon_winding(result: dict) -> int:
+    """
+    Приводит кольца полигонов к ожидаемому D3 направлению обхода.
+
+    У TopoJSON общая дуга может быть сохранена в направлении одного из
+    объектов. Тогда анклав и дырка под него ссылаются на дугу с одинаковым
+    знаком, и D3 рисует анклав как весь мир. Поэтому после конвертации
+    проверяем фактическое направление каждого кольца: внешнее кольцо должно
+    обходиться по часовой стрелке, внутренние — против.
+    """
+    arcs = result.get("arcs", [])
+    fixed = 0
+
+    for topology_object in result.get("objects", {}).values():
+        for geometry in topology_object.get("geometries", []):
+            geometry_type = geometry.get("type")
+
+            if geometry_type == "Polygon":
+                polygons = [geometry["arcs"]]
+            elif geometry_type == "MultiPolygon":
+                polygons = geometry["arcs"]
+            else:
+                continue
+
+            for polygon in polygons:
+                for ring_index, ring in enumerate(polygon):
+                    area = _ring_area(_stitch_ring(arcs, ring))
+
+                    if area == 0:
+                        continue
+
+                    # D3: внешнее кольцо — по часовой стрелке (area < 0),
+                    # внутреннее (дырка) — против часовой (area > 0).
+                    should_be_negative = ring_index == 0
+
+                    if (area < 0) != should_be_negative:
+                        polygon[ring_index] = [~arc for arc in reversed(ring)]
+                        fixed += 1
+
+    return fixed
 
 
 def convert_geojson(source_path: Path) -> None:
@@ -40,6 +99,9 @@ def convert_geojson(source_path: Path) -> None:
 
         # Получаем словарь TopoJSON.
         result = topology.to_dict()
+
+        # Восстанавливаем направление обхода колец после дедупликации дуг.
+        fixed_rings = _fix_polygon_winding(result)
 
         # Округляем все координаты дуг до 3 знаков.
         # У TopoJSON координаты могут быть delta-кодированными,
@@ -70,7 +132,10 @@ def convert_geojson(source_path: Path) -> None:
         # Заменяем старый файл только после успешной записи.
         temp_path.replace(target_path)
 
-        print(f"[OK] {source_path.name} -> {target_path.name}")
+        print(
+            f"[OK] {source_path.name} -> {target_path.name} "
+            f"(исправлено колец: {fixed_rings})"
+        )
 
     except Exception as error:
         print(f"[ОШИБКА] {source_path.name}: {error}")
