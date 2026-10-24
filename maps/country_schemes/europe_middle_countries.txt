@@ -58,7 +58,7 @@ luxembourg 1945
 netherlands1944 1944 1944
 germ_nl1944 1944 1944
 netherlands1814 1814 1939
-belguim1830 1830 1939
+belgium1830 1830 1939
 luxembourg1867 1867 1939
 danzig 1919 1938
 memel 1919 1922

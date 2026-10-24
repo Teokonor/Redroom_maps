@@ -73,7 +73,7 @@ germ_nl1940 germ_nl1940 SPLITMERGE 1940
 netherlands1944 netherlands MERGE 1945
 germ_nl1944 netherlands MERGE 1945
 netherlands1814 germ_nl1940 MERGE 1940
-belguim1830 germ_belgium1940 ___ 1940
+belgium1830 germ_belgium1940 ___ 1940
 luxembourg1867 germ_luxembourg ___ 1940
 danzig germany1939 MERGE 1939
 saar1919 germany1935 MERGE 1935
@@ -82,7 +82,7 @@ germany1935 germany1939 MERGE 1939
 nl_luxembourg1839 luxembourg1867 ___ 1867
 belgian_luxembourg nl_luxembourg1839 ___ 1839
 nl_luxembourg belgian_luxembourg ___ 1830
-nl_belgium1814 belguim1830 ___ 1830
+nl_belgium1814 belgium1830 ___ 1830
 fr_netherlands netherlands1814 ___ 1814
 fr_luxembourg1795 nl_luxembourg ___ 1814
 fr_belgium1795 nl_belgium1814 ___ 1814

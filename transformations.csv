@@ -2607,7 +2607,7 @@ colombia1819;colombia;SPLIT;1830
 colombia1819;equador;SPLIT;1830
 colombia1819;venezuela;SPLIT;1830
 colombian_panama1821;colombian_panama1830;PARENT;1830
-nl_belgium1814;belguim1830;INDEPENDENCE;1830
+nl_belgium1814;belgium1830;INDEPENDENCE;1830
 nl_east_indies1821;nl_east_indies1830;MERGE;1830
 nl_luxembourg;belgian_luxembourg;TRANSFER;1830
 ott_algeria1574;fr_n_africa1830;TRANSFER;1830
@@ -3001,7 +3001,7 @@ germany1935;germany1939;MERGE;1939
 poland1918;germ_poland1939;SPLIT;1939
 poland1918;ru_poland1939;SPLIT;1939
 bel_congo1908;bel_congo1940;PARENT;1940
-belguim1830;germ_belgium1940;ANNEXATION;1940
+belgium1830;germ_belgium1940;ANNEXATION;1940
 br_somalia1884;ital_n_somalia;TRANSFER;1940
 den_greenland1916;greenland;INDEPENDENCE;1940
 den_iceland;br_iceland;TRANSFER;1940
