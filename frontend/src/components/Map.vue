@@ -1,8 +1,11 @@
 <script setup lang="ts">
-import { ref, shallowRef, computed, onMounted } from 'vue';
+import { ref, shallowRef, computed, onMounted, watch } from 'vue';
 import * as d3 from 'd3';
 import * as topojson from 'topojson-client';
+import CountryPanel from '@/components/CountryPanel.vue';
 import YearRuler from '@/components/YearRuler.vue';
+import { loadCountries } from '@/api/countries';
+import type { Country, CountryRegion } from '@/types/country';
 import {
   buildCountryLabels,
   visibleCountryLabels,
@@ -23,6 +26,13 @@ const zoomScale = ref(1);
 
 const selectedYear = ref(2000);
 const loading = ref(true);
+const selectedCountryId = ref<string | null>(null);
+const isCountryPanelOpen = ref(false);
+
+watch(selectedYear, () => {
+  selectedCountryId.value = null;
+  isCountryPanelOpen.value = false;
+});
 
 type CountryFeatureCollection = GeoJSON.FeatureCollection<GeoJSON.Geometry, CountryProperties>;
 type WorldFeatureCollection = GeoJSON.FeatureCollection<GeoJSON.Geometry>;
@@ -41,6 +51,7 @@ type LoadedMap = {
 const maps = shallowRef<Record<number, CountryFeatureCollection>>({});
 const mapBorders = shallowRef<Record<number, GeoJSON.MultiLineString>>({});
 const colors = ref<Record<string, string>>({});
+const countries = shallowRef<Country[]>([]);
 const worldMaps = ref<Record<WorldVariant, WorldFeatureCollection | null>>({
   modern: null,
   ancient: null,
@@ -61,12 +72,63 @@ const LABEL_PADDING_X = 2;
 const LABEL_PADDING_Y = 1;
 const LABEL_STROKE_WIDTH = 1.5;
 
-// const projection = d3.geoMercator(); // Меркатор с безумной Гренландией
-// const projection = d3.geoOrthographic(); // глобус
-const projection = d3.geoNaturalEarth1(); // нормальная плоская карта
-// const projection = d3.geoEqualEarth(); // нормальная плоская, но слегка вытянутая вертикально
-// const projection = d3.geoEquirectangular(); // нормальная плоская, ещё и абсолютно прямоугольная
-const pathGenerator = d3.geoPath(projection);
+type ProjectionId =
+  | 'natural-earth'
+  | 'equal-earth'
+  | 'equirectangular'
+  | 'mercator';
+
+type ProjectionOption = {
+  id: ProjectionId;
+  label: string;
+  create: () => d3.GeoProjection;
+};
+
+const projectionOptions: ProjectionOption[] = [
+  {
+    id: 'natural-earth',
+    label: 'Natural Earth',
+    create: () => d3.geoNaturalEarth1(),
+  },
+  {
+    id: 'equal-earth',
+    label: 'Equal Earth',
+    create: () => d3.geoEqualEarth(),
+  },
+  {
+    id: 'equirectangular',
+    label: 'Эквиректангулярная',
+    create: () => d3.geoEquirectangular(),
+  },
+  {
+    id: 'mercator',
+    label: 'Меркатор',
+    create: () => d3.geoMercator(),
+  },
+];
+
+const selectedProjectionId = ref<ProjectionId>('natural-earth');
+const PROJECTION_PADDING = 20;
+
+const projection = computed(() => {
+  const option =
+    projectionOptions.find(
+      (candidate) => candidate.id === selectedProjectionId.value
+    ) ?? projectionOptions[0]!;
+  const nextProjection = option.create();
+
+  nextProjection.fitExtent(
+    [
+      [PROJECTION_PADDING, PROJECTION_PADDING],
+      [width - PROJECTION_PADDING, height - PROJECTION_PADDING],
+    ],
+    { type: 'Sphere' } as unknown as d3.GeoPermissibleObjects
+  );
+
+  return nextProjection;
+});
+
+const pathGenerator = computed(() => d3.geoPath(projection.value));
 
 const currentMap = computed(() => maps.value[selectedYear.value]);
 const currentBorders = computed(() => mapBorders.value[selectedYear.value]);
@@ -80,7 +142,7 @@ const currentWorld = computed(
 );
 
 const worldPath = computed(() =>
-  currentWorld.value ? pathGenerator(currentWorld.value) || '' : ''
+  currentWorld.value ? pathGenerator.value(currentWorld.value) || '' : ''
 );
 
 // Пути считаем один раз на карту, а не при каждом зуме/рендере.
@@ -91,7 +153,9 @@ const countryShapes = computed(() => {
     const colorId = country.properties.colorId;
     return {
       id: country.properties.id,
-      d: pathGenerator(country) || '',
+      parent: country.properties.parent,
+      name: country.properties.name,
+      d: pathGenerator.value(country) || '',
       fill: colorId
         ? colors.value[colorId] ?? MISSING_COLOR_FILL
         : UNCOLORED_FILL,
@@ -99,17 +163,141 @@ const countryShapes = computed(() => {
   });
 });
 
-const borderPath = computed(() =>
-  currentBorders.value ? pathGenerator(currentBorders.value) || '' : ''
+function selectCountry(id: string) {
+  if (selectedCountryId.value === id) {
+    if (isCountryPanelOpen.value) {
+      clearSelection();
+    } else {
+      isCountryPanelOpen.value = true;
+    }
+  } else {
+    selectedCountryId.value = id;
+    isCountryPanelOpen.value = true;
+  }
+
+  if (selectedCountryId.value && countries.value.length === 0) {
+    void ensureCountries();
+  }
+}
+
+function clearSelection() {
+  selectedCountryId.value = null;
+  isCountryPanelOpen.value = false;
+}
+
+function closeCountryPanel() {
+  isCountryPanelOpen.value = false;
+}
+
+const countriesById = computed(() => {
+  const index = new Map<string, Country>();
+  for (const country of countries.value) {
+    index.set(country.id, country);
+  }
+  return index;
+});
+
+const selectedCountry = computed(() => {
+  const id = selectedCountryId.value;
+  return id ? countriesById.value.get(id) ?? null : null;
+});
+
+const selectedCountryShape = computed(() => {
+  const id = selectedCountryId.value;
+  return id
+    ? countryShapes.value.find((shape) => shape.id === id) ?? null
+    : null;
+});
+
+const selectedParentId = computed(() => {
+  return (
+    selectedCountryShape.value?.parent ??
+    selectedCountry.value?.owner_id ??
+    null
+  );
+});
+
+const selectedParentName = computed(() => {
+  const parentId = selectedParentId.value;
+  if (!parentId) return null;
+
+  return (
+    countriesById.value.get(parentId)?.name ||
+    selectedCountry.value?.owner?.name ||
+    countryShapes.value.find((shape) => shape.id === parentId)?.name ||
+    parentId
+  );
+});
+
+const selectedCountryRegions = computed<CountryRegion[]>(() => {
+  const rootId = selectedCountryId.value;
+  if (!rootId) return [];
+
+  return countryShapes.value
+    .filter((shape) => shape.parent === rootId)
+    .map((shape) => ({
+      id: shape.id,
+      name: countriesById.value.get(shape.id)?.name || shape.name || shape.id,
+    }))
+    .sort((a, b) => a.name.localeCompare(b.name, 'ru'));
+});
+
+const selectedCountryShapes = computed(() => {
+  const rootId = selectedCountryId.value;
+  if (!rootId) return [];
+
+  const shapes = countryShapes.value;
+  const childrenByParent = new Map<string, typeof shapes>();
+
+  for (const shape of shapes) {
+    if (!shape.parent) continue;
+    const children = childrenByParent.get(shape.parent);
+    if (children) children.push(shape);
+    else childrenByParent.set(shape.parent, [shape]);
+  }
+
+  const selectedIds = new Set<string>([rootId]);
+  const pending = [rootId];
+
+  // Регионы могут быть вложены друг в друга, поэтому собираем всех потомков.
+  while (pending.length > 0) {
+    const parentId = pending.pop();
+    if (parentId === undefined) continue;
+
+    for (const child of childrenByParent.get(parentId) ?? []) {
+      if (selectedIds.has(child.id)) continue;
+      selectedIds.add(child.id);
+      pending.push(child.id);
+    }
+  }
+
+  return shapes.filter((shape) => selectedIds.has(shape.id));
+});
+
+const selectedHaloPath = computed(() =>
+  selectedCountryShapes.value
+    .map((shape) => shape.d)
+    .filter(Boolean)
+    .join(' ')
 );
 
-// Подписи зависят только от геометрии, поэтому кешируем их по году.
-const labelCache = new Map<number, CountryLabel[]>();
+const borderPath = computed(() =>
+  currentBorders.value ? pathGenerator.value(currentBorders.value) || '' : ''
+);
+
+// Подписи зависят от геометрии и проекции, поэтому кешируем их по году и проекции.
+const labelCache = new Map<string, CountryLabel[]>();
+
+function labelCacheKey(year: number): string {
+  return `${selectedProjectionId.value}:${year}`;
+}
 
 function pruneLabelCache(yearsToKeep: number[]) {
-  const keep = new Set(yearsToKeep);
-  for (const year of labelCache.keys()) {
-    if (!keep.has(year)) labelCache.delete(year);
+  const prefix = `${selectedProjectionId.value}:`;
+  const keep = new Set(yearsToKeep.map(labelCacheKey));
+
+  for (const key of labelCache.keys()) {
+    if (key.startsWith(prefix) && !keep.has(key)) labelCache.delete(key);
   }
 }
 
@@ -117,18 +305,35 @@ const countryLabels = computed<CountryLabel[]>(() => {
   const map = currentMap.value;
   if (!map?.features?.length) return [];
 
-  const cached = labelCache.get(selectedYear.value);
+  const key = labelCacheKey(selectedYear.value);
+  const cached = labelCache.get(key);
   if (cached) return cached;
 
-  const labels = buildCountryLabels(map.features, projection, {
+  const labels = buildCountryLabels(map.features, projection.value, {
     fontSize: LABEL_FONT_SIZE,
     fontFamily: LABEL_FONT_FAMILY,
     lineHeight: LABEL_LINE_HEIGHT,
     paddingX: LABEL_PADDING_X,
     paddingY: LABEL_PADDING_Y,
   });
-  labelCache.set(selectedYear.value, labels);
+  labelCache.set(key, labels);
   return labels;
+});
+
+let zoomBehavior: d3.ZoomBehavior<SVGSVGElement, unknown> | null = null;
+
+function resetZoom() {
+  if (!svgRef.value || !zoomBehavior) return;
+
+  d3.select(svgRef.value).call(
+    zoomBehavior.transform,
+    d3.zoomIdentity
+  );
+}
+
+watch(selectedProjectionId, () => {
+  labelCache.clear();
+  resetZoom();
 });
 
 const visibleLabels = computed(() =>
@@ -150,7 +355,9 @@ function ensureColors() {
   if (!colorsPromise) {
     colorsPromise = (async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8652/map/colors');
+        const response = await fetch('http://127.0.0.1:8652/map/colors', {
+          cache: 'no-cache',
+        });
         if (!response.ok) throw new Error('Не удалось загрузить цвета');
         colors.value = await response.json();
       } catch (error) {
@@ -159,6 +366,22 @@ function ensureColors() {
     })();
   }
   return colorsPromise;
+}
+
+let countriesPromise: Promise<void> | null = null;
+
+function ensureCountries() {
+  if (!countriesPromise) {
+    countriesPromise = loadCountries()
+      .then((data) => {
+        countries.value = data;
+      })
+      .catch((error) => {
+        console.error('Ошибка загрузки стран', error);
+        countriesPromise = null;
+      });
+  }
+  return countriesPromise;
 }
 
 // The world files contain a single land geometry. Their feature properties
@@ -285,8 +508,16 @@ function handleRangeChange(range: YearRangePayload) {
   void loadYears(range.years);
 }
 
+function handleMapMouseDown(event: MouseEvent) {
+  // Prevent the browser's middle-click autoscroll so the map can be panned.
+  if (event.button === 1) {
+    event.preventDefault();
+  }
+}
+
 onMounted(() => {
   void ensureColors();
+  void ensureCountries();
 
   // Загружаем обе подложки мира: современную и для годов <= -609.
   void Promise.all([
@@ -294,16 +525,24 @@ onMounted(() => {
     loadWorld('modern', WORLD_609M_LAST_YEAR + 1),
   ]);
 
-  const zoom = d3
+  zoomBehavior = d3
     .zoom<SVGSVGElement, unknown>()
     .scaleExtent([1, 10000])
+    .filter((event: MouseEvent) => {
+      if (event.type === 'mousedown') {
+        if (event.button === 1) return true;
+        return event.button === 0 && !event.ctrlKey;
+      }
+
+      return (!event.ctrlKey || event.type === 'wheel') && !event.button;
+    })
     .on('zoom', (event) => {
       zoomScale.value = event.transform.k;
       d3.select(mapGroupRef.value).attr('transform', event.transform);
     });
 
   if (!svgRef.value) return;
-  d3.select(svgRef.value).call(zoom);
+  d3.select(svgRef.value).call(zoomBehavior);
 });
 </script>
 
@@ -316,8 +555,60 @@ onMounted(() => {
     />
 
     <div class="map-stage">
-      <svg :width="width" :height="height" ref="svgRef" class="d3-map">
+      <Teleport to="#projection-slot">
+        <div
+          class="projection-switcher"
+          role="group"
+          aria-label="Проекция карты"
+        >
+          <span class="projection-caption">Проекция</span>
+          <button
+            v-for="option in projectionOptions"
+            :key="option.id"
+            type="button"
+            class="projection-button"
+            :class="{ 'is-active': selectedProjectionId === option.id }"
+            @click="selectedProjectionId = option.id"
+          >
+            {{ option.label }}
+          </button>
+        </div>
+      </Teleport>
+
+      <svg
+        :width="width"
+        :height="height"
+        ref="svgRef"
+        class="d3-map"
+        @click="clearSelection"
+        @mousedown.capture="handleMapMouseDown"
+      >
         <g ref="mapGroupRef">
+          <defs>
+            <mask
+              id="country-selection-mask"
+              maskUnits="userSpaceOnUse"
+              x="0"
+              y="0"
+              :width="width"
+              :height="height"
+            >
+              <rect
+                x="0"
+                y="0"
+                :width="width"
+                :height="height"
+                fill="white"
+              />
+              <path
+                v-for="country in selectedCountryShapes"
+                :key="`selection-mask-${country.id}`"
+                :d="country.d"
+                fill="black"
+              />
+            </mask>
+          </defs>
+
           <path
             v-if="worldPath"
             :d="worldPath"
@@ -328,9 +619,12 @@ onMounted(() => {
           <path
             v-for="country in countryShapes"
             :key="country.id"
+            class="country-shape"
+            :data-country-id="country.id"
             :d="country.d"
             :fill="country.fill"
             stroke="none"
+            @click.stop="selectCountry(country.id)"
           />
           <path
             v-if="borderPath"
@@ -339,7 +633,35 @@ onMounted(() => {
             stroke="#222222"
             stroke-width="1"
             vector-effect="non-scaling-stroke"
+            pointer-events="none"
           />
+          <g
+            v-if="selectedCountryShapes.length"
+            class="country-selection"
+            mask="url(#country-selection-mask)"
+            pointer-events="none"
+          >
+            <path
+              :d="selectedHaloPath"
+              fill="none"
+              stroke="#ffd866"
+              stroke-opacity="0.24"
+              stroke-width="27"
+              stroke-linejoin="round"
+              stroke-linecap="round"
+              vector-effect="non-scaling-stroke"
+            />
+            <path
+              :d="selectedHaloPath"
+              fill="none"
+              stroke="#ffe9a3"
+              stroke-opacity="0.95"
+              stroke-width="13.5"
+              stroke-linejoin="round"
+              stroke-linecap="round"
+              vector-effect="non-scaling-stroke"
+            />
+          </g>
           <g
             class="country-labels"
             pointer-events="none"
@@ -360,6 +682,21 @@ onMounted(() => {
           </g>
         </g>
       </svg>
+
+      <Transition name="country-panel">
+        <CountryPanel
+          v-if="selectedCountryId && isCountryPanelOpen"
+          :country="selectedCountry"
+          :country-id="selectedCountryId ?? ''"
+          :year="selectedYear"
+          :fallback-name="selectedCountryShape?.name ?? null"
+          :parent-id="selectedParentId"
+          :parent-name="selectedParentName"
+          :regions="selectedCountryRegions"
+          @close="closeCountryPanel"
+          @select-country="selectCountry"
+        />
+      </Transition>
     </div>
   </div>
 </template>
@@ -372,10 +709,87 @@ onMounted(() => {
 }
 
 .map-stage {
+  position: relative;
   flex: 0 0 auto;
 }
 
+.projection-switcher {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 4px;
+  margin: 0;
+  padding: 4px 6px;
+  white-space: nowrap;
+  background: rgba(48, 0, 0, 0.92);
+  border: 1px solid rgba(255, 216, 102, 0.36);
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(4px);
+}
+
+.projection-caption {
+  padding: 0 5px;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: rgba(244, 240, 230, 0.6);
+  text-transform: uppercase;
+}
+
+.projection-button {
+  padding: 5px 8px;
+  font: inherit;
+  font-size: 11px;
+  line-height: 1.2;
+  color: #f4f0e6;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 5px;
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    color 0.15s;
+}
+
+.projection-button:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.36);
+}
+
+.projection-button.is-active {
+  color: #000035;
+  background: #ffd866;
+  border-color: #ffd866;
+}
+
+@media (max-width: 1100px) {
+  .projection-caption {
+    display: none;
+  }
+
+  .projection-button {
+    padding: 4px 6px;
+    font-size: 10px;
+  }
+}
+
 .d3-map {
+  display: block;
   background-color: #000035;
+  cursor: default;
+}
+
+.country-panel-enter-active,
+.country-panel-leave-active {
+  transition:
+    transform 0.22s ease,
+    opacity 0.22s ease;
+}
+
+.country-panel-enter-from,
+.country-panel-leave-to {
+  opacity: 0;
+  transform: translateX(100%);
 }
 </style>

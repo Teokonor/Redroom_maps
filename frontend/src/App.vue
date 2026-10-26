@@ -1,51 +1,59 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { ref } from 'vue';
+import { RouterView } from 'vue-router';
+import TopPanel from '@/components/TopPanel.vue';
+
+type Panel = 'collections' | 'help' | 'support';
+
+const panels: Array<{ id: Panel; label: string }> = [
+  { id: 'collections', label: 'Подборки' },
+  { id: 'help', label: 'Справка' },
+  { id: 'support', label: 'Поддержать' },
+];
+
+const activePanel = ref<Panel | null>(null);
+
+function togglePanel(panel: Panel) {
+  activePanel.value = activePanel.value === panel ? null : panel;
+}
+
+function closePanel() {
+  activePanel.value = null;
+}
 </script>
 
 <template>
   <div class="app-layout">
     <header class="main-header">
-      <div class="header-left">
-        <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="40" height="40" />
-        <HelloWorld msg="You did it!" />
-      </div>
-
-      <nav class="main-nav">
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+      <nav class="main-nav" aria-label="Основное меню">
+        <button
+          v-for="panel in panels"
+          :key="panel.id"
+          type="button"
+          class="header-button"
+          :class="{ 'is-active': activePanel === panel.id }"
+          @click="togglePanel(panel.id)"
+        >
+          {{ panel.label }}
+        </button>
       </nav>
+
+      <div id="projection-slot" class="projection-slot"></div>
     </header>
 
     <main class="main-content">
       <RouterView />
     </main>
+
+    <TopPanel
+      v-if="activePanel"
+      :panel="activePanel"
+      @close="closePanel"
+    />
   </div>
-
-
-
-  <!-- <div class="app-layout">
-    <header>
-      <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="25" height="25" />
-
-      <div class="wrapper">
-        <HelloWorld msg="You did it!" />
-
-        <nav>
-          <RouterLink to="/">Home</RouterLink>
-          <RouterLink to="/about">About</RouterLink>
-        </nav>
-      </div>
-    </header>
-
-    <main>
-      <RouterView />
-    </main>
-  </div> -->
 </template>
 
 <style scoped>
-/* Главный контейнер на весь экран */
 .app-layout {
   display: flex;
   flex-direction: column;
@@ -53,136 +61,58 @@ import HelloWorld from './components/HelloWorld.vue'
   background-color: #300000;
 }
 
-/* Узкая фиксированная шапка */
 .main-header {
   display: flex;
+  flex: 0 0 auto;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  height: 60px;
   padding: 0.5rem 2rem;
-  /* background-color: var(--color-background); */
   border-bottom: 1px solid var(--color-border);
-  height: 60px; /* Фиксированная высота шапки */
 }
 
-/* Блок с логотипом и текстом */
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.logo {
-  display: block;
-}
-
-/* Навигация справа */
 .main-nav {
   display: flex;
-  gap: 1rem;
-  font-size: 1rem;
+  gap: 8px;
 }
 
-.main-nav a {
-  text-decoration: none;
-  color: var(--color-text);
-  padding: 0.25rem 0.5rem;
+.projection-slot {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  margin-left: auto;
 }
 
-.main-nav a.router-link-exact-active {
-  color: var(--color-heading);
-  font-weight: bold;
+.header-button {
+  padding: 8px 14px;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #f4f0e6;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 6px;
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    color 0.15s;
 }
 
-/* Контентная область занимает всё оставшееся место */
+.header-button:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.36);
+}
+
+.header-button.is-active {
+  color: #000035;
+  background: #ffd866;
+  border-color: #ffd866;
+}
+
 .main-content {
   flex-grow: 1;
   padding: 2rem;
-  overflow-y: auto; /* Добавляет скролл только для контента, если он не влезает */
-}
-
-
-
-/* .app-layout {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  min-width: 100vw;
-}
-
-main {
-  flex-grow: 1;
-  padding: 2rem;
   overflow-y: auto;
-  background-color: #300000;
 }
-
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 2rem;
-  background-color: var(--color-background);
-  border-bottom: 1px solid var(--color-border);
-  height: 80px;
-  line-height: 1.5;
-  max-height: 100vh;
-  background-color: #300000;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 0.8rem;
-
-    padding: 1rem 0;
-    margin-top: 0rem;
-  }
-} */
 </style>

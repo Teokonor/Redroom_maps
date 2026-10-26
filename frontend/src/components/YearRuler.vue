@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue';
 import { years as allYears } from '@/data/years';
+import { formatYearTick } from '@/utils/yearLabels';
 
 type Step = 1 | 10 | 100;
 
@@ -281,7 +282,7 @@ watch(
         @click="selectYear(year)"
       >
         <span class="tick-mark" />
-        <span class="tick-label">{{ year }}</span>
+        <span class="tick-label">{{ formatYearTick(year) }}</span>
       </button>
     </div>
 

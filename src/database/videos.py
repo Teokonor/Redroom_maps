@@ -1,10 +1,15 @@
-from typing import List
-from datetime import date
+from __future__ import annotations
 
-from sqlalchemy.orm import Mapped, mapped_column, relationship
+from collections import defaultdict
+from datetime import date
+from typing import Iterable, List
+
+from sqlalchemy.orm import Mapped, mapped_column, relationship, joinedload
 from sqlalchemy.sql.sqltypes import String, Integer, Date
 
 from .abs import Base
+from .orm import Database
+from .video_tags import VideoTagModel
 
 
 class VideoModel(Base):
@@ -21,6 +26,126 @@ class VideoModel(Base):
     deleted: Mapped[bool] = mapped_column(default=False)
     
     periods: Mapped[List['PeriodModel']] = relationship('PeriodModel', back_populates='video')
+    tags: Mapped[List['TagModel']] = relationship(
+        'TagModel',
+        secondary=VideoTagModel.__table__,
+        back_populates='videos',
+    )
+
+
+def _build_video_selection(
+    periods: Iterable[PeriodModel],
+) -> dict[str, list[VideoModel]]:
+    """Collect unique videos, keeping main videos out of the indirect list."""
+    main: dict[int, VideoModel] = {}
+    indirectly: dict[int, VideoModel] = {}
+
+    for period in periods:
+        video = period.video
+        if video is None or video.deleted:
+            continue
+
+        if period.is_main:
+            main[video.num] = video
+            indirectly.pop(video.num, None)
+        elif video.num not in main:
+            indirectly[video.num] = video
+
+    return {
+        'main': sorted(main.values(), key=lambda video: video.num, reverse=True),
+        'indirectly': sorted(
+            indirectly.values(), key=lambda video: video.num, reverse=True
+        ),
+    }
+
+
+class VideoService:
+    @staticmethod
+    def get_for_period(
+        country_id: str, begin_year: int, end_year: int
+    ) -> dict[str, list[VideoModel]]:
+        with Database.session() as session:
+            periods = (
+                session.query(PeriodModel)
+                .options(joinedload(PeriodModel.video))
+                .filter(
+                    PeriodModel.country_id == country_id,
+                    PeriodModel.deleted.is_(False),
+                    PeriodModel.begin_year <= end_year,
+                    PeriodModel.end_year >= begin_year,
+                )
+                .all()
+            )
+            return _build_video_selection(periods)
+
+    @staticmethod
+    def get_for_history(country_id: str) -> dict[str, list[VideoModel]]:
+        with Database.session() as session:
+            transformations = (
+                session.query(
+                    TransformationModel.before_id,
+                    TransformationModel.after_id,
+                )
+                .filter(TransformationModel.deleted.is_(False))
+                .all()
+            )
+
+            neighbors: dict[str, set[str]] = defaultdict(set)
+            for before_id, after_id in transformations:
+                neighbors[before_id].add(after_id)
+                neighbors[after_id].add(before_id)
+
+            country_ids = {country_id}
+            pending = [country_id]
+
+            # Traverse both directions, keeping every branch and guarding cycles.
+            while pending:
+                current_id = pending.pop()
+                for next_id in neighbors.get(current_id, ()):
+                    if next_id in country_ids:
+                        continue
+                    country_ids.add(next_id)
+                    pending.append(next_id)
+
+            periods = (
+                session.query(PeriodModel)
+                .options(joinedload(PeriodModel.video))
+                .filter(
+                    PeriodModel.country_id.in_(country_ids),
+                    PeriodModel.deleted.is_(False),
+                )
+                .all()
+            )
+            return _build_video_selection(periods)
+
+    @staticmethod
+    def get_all() -> list[VideoModel]:
+        with Database.session() as session:
+            return (
+                session.query(VideoModel)
+                .filter(VideoModel.deleted.is_(False))
+                .order_by(VideoModel.num.desc())
+                .all()
+            )
+
+    @staticmethod
+    def get_for_tag(tag_id: str) -> list[VideoModel]:
+        with Database.session() as session:
+            return (
+                session.query(VideoModel)
+                .join(
+                    VideoTagModel,
+                    VideoTagModel.video_num == VideoModel.num,
+                )
+                .filter(
+                    VideoTagModel.tag_id == tag_id,
+                    VideoModel.deleted.is_(False),
+                )
+                .order_by(VideoModel.num.desc())
+                .all()
+            )
 
 
 from .periods import PeriodModel
+from .tags import TagModel
+from .transformations import TransformationModel
