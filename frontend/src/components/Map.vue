@@ -411,7 +411,9 @@ async function loadWorld(variant: WorldVariant, year: number) {
 
 async function loadMapData(year: number): Promise<LoadedMap | null> {
   try {
-    const response = await fetch(`http://127.0.0.1:8652/map/geometry/${year}`);
+    const response = await fetch(`http://127.0.0.1:8652/map/geometry/${year}`, {
+      cache: 'no-cache',
+    });
     if (!response.ok) {
       console.error(`Не удалось загрузить карту ${year}`);
       return null;
