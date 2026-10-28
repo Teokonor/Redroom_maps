@@ -13,23 +13,36 @@ MIN_NUM = 10
 MAX_NUM = 1310
 
 START_COLOR = (153, 0, 0)   # #990000
+MID_COLOR = (153, 153, 0)   # #999900
 END_COLOR = (0, 153, 0)     # #009900
+
+MID_NUM = (MIN_NUM + MAX_NUM) / 2
 
 
 def get_quality(num: int) -> str:
-    """Вычисляет цвет видео по его номеру."""
+    """Вычисляет цвет видео: красный -> жёлтый -> зелёный."""
     if num >= MAX_NUM:
         return "#009900"
 
     if num <= MIN_NUM:
         return "#990000"
 
-    progress = (num - MIN_NUM) / (MAX_NUM - MIN_NUM)
+    if num <= MID_NUM:
+        progress = (num - MIN_NUM) / (MID_NUM - MIN_NUM)
+        r = START_COLOR[0]
+        g = round(
+            START_COLOR[1]
+            + (MID_COLOR[1] - START_COLOR[1]) * progress
+        )
+    else:
+        progress = (num - MID_NUM) / (MAX_NUM - MID_NUM)
+        r = round(
+            MID_COLOR[0]
+            + (END_COLOR[0] - MID_COLOR[0]) * progress
+        )
+        g = MID_COLOR[1]
 
-    r = round(START_COLOR[0] + (END_COLOR[0] - START_COLOR[0]) * progress)
-    g = round(START_COLOR[1] + (END_COLOR[1] - START_COLOR[1]) * progress)
-    b = round(START_COLOR[2] + (END_COLOR[2] - START_COLOR[2]) * progress)
-
+    b = 0
     return f"#{r:02x}{g:02x}{b:02x}"
 
 

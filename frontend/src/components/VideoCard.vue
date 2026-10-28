@@ -35,8 +35,18 @@ const quality = computed(() => {
     };
   }
 
+  const MAX_CHANNEL = 153;
+  const red = parseInt(normalized.slice(0, 2), 16);
   const green = parseInt(normalized.slice(2, 4), 16);
-  const score = Math.min(1, Math.max(0, green / 153));
+  const redValue = Math.min(MAX_CHANNEL, Math.max(0, red));
+  const greenValue = Math.min(MAX_CHANNEL, Math.max(0, green));
+
+  // Градиент двухфазный: красный -> жёлтый (растёт зелёный),
+  // затем жёлтый -> зелёный (убывает красный).
+  const score =
+    greenValue < MAX_CHANNEL
+      ? (greenValue / MAX_CHANNEL) * 0.5
+      : 0.5 + ((MAX_CHANNEL - redValue) / MAX_CHANNEL) * 0.5;
 
   let level: 'низкое' | 'среднее' | 'высокое' | 'высшее';
   if (score < 1 / 3) {

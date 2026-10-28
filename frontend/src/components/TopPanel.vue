@@ -3,9 +3,10 @@ import { computed, onBeforeUnmount, ref, watch } from 'vue';
 import type { Tag } from '@/types/tag';
 import type { Video } from '@/types/video';
 import { loadTags } from '@/api/tags';
-import { loadAllVideos, loadTagVideos } from '@/api/videos';
+import { loadTagVideos } from '@/api/videos';
 import VideoCard from '@/components/VideoCard.vue';
 import VideoDetails from '@/components/VideoDetails.vue';
+import { useVideoCatalog } from '@/composables/useVideoCatalog';
 
 type Panel = 'collections' | 'help' | 'support';
 
@@ -34,6 +35,8 @@ const videosLoading = ref(false);
 const tagsError = ref<string | null>(null);
 const videosError = ref<string | null>(null);
 const selectedVideo = ref<Video | null>(null);
+
+const { ensureCatalog } = useVideoCatalog();
 
 let tagsRequestId = 0;
 let videosRequestId = 0;
@@ -82,7 +85,7 @@ async function loadVideos(tagId: string | null) {
   try {
     const nextVideos = tagId
       ? await loadTagVideos(tagId)
-      : await loadAllVideos();
+      : await ensureCatalog();
 
     if (requestId !== videosRequestId) return;
     videos.value = [...nextVideos].sort((a, b) => b.num - a.num);
@@ -221,6 +224,7 @@ onBeforeUnmount(() => {
       v-if="selectedVideo"
       :video="selectedVideo"
       @close="selectedVideo = null"
+      @select="selectedVideo = $event"
     />
   </aside>
 </template>

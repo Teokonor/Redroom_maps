@@ -255,6 +255,7 @@ onBeforeUnmount(() => {
       v-if="selectedVideo"
       :video="selectedVideo"
       @close="selectedVideo = null"
+      @select="selectedVideo = $event"
     />
   </aside>
 </template>

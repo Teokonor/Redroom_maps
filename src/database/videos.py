@@ -5,7 +5,7 @@ from datetime import date
 from typing import Iterable, List
 
 from sqlalchemy.orm import Mapped, mapped_column, relationship, joinedload, aliased
-from sqlalchemy.sql.sqltypes import String, Integer, Date
+from sqlalchemy.sql.sqltypes import String, Integer, Date, JSON
 
 from .abs import Base
 from .orm import Database
@@ -21,6 +21,15 @@ class VideoModel(Base):
     reserve_url: Mapped[str | None] = mapped_column(String, nullable=True)
     image_file: Mapped[str | None] = mapped_column(String, nullable=True)
     description: Mapped[str | None] = mapped_column(String, nullable=True)
+    mentioned: Mapped[list[int]] = mapped_column(
+        JSON(none_as_null=True), default=list, nullable=True
+    )
+    ideas_released: Mapped[list[int]] = mapped_column(
+        JSON(none_as_null=True), default=list, nullable=True
+    )
+    ideas_planned: Mapped[list[str]] = mapped_column(
+        JSON(none_as_null=True), default=list, nullable=True
+    )
     quality: Mapped[str] = mapped_column(String, default="#009900")
     published: Mapped[date] = mapped_column(Date)
     deleted: Mapped[bool] = mapped_column(default=False)
