@@ -3,7 +3,7 @@ from typing import List
 from sqlalchemy.orm import Mapped, mapped_column, relationship, selectinload
 from sqlalchemy.sql.schema import ForeignKey
 from sqlalchemy.sql.sqltypes import String, Integer
-from sqlalchemy import and_
+from sqlalchemy import and_, or_
 
 from .abs import Base
 from .orm import Database
@@ -40,7 +40,10 @@ class CountryService:
         with Database.session() as session:
             return (
                 session.query(CountryModel.id)
-                .filter(CountryModel.id == country_id)
+                .filter(
+                    CountryModel.id == country_id,
+                    CountryModel.deleted.is_(False),
+                )
                 .first()
                 is not None
             )
@@ -50,9 +53,18 @@ class CountryService:
         with Database.session() as session:
             query = (
                 session.query(CountryModel)
+                .filter(CountryModel.deleted.is_(False))
                 .options(
-                    selectinload(CountryModel.owner),
-                    selectinload(CountryModel.regions),
+                    selectinload(
+                        CountryModel.owner.and_(
+                            CountryModel.deleted.is_(False),
+                        )
+                    ),
+                    selectinload(
+                        CountryModel.regions.and_(
+                            CountryModel.deleted.is_(False),
+                        )
+                    ),
                 )
                 .order_by(CountryModel.begin_year, CountryModel.id)
             )
@@ -65,11 +77,23 @@ class CountryService:
                 session.query(CountryModel)
                 .filter(and_(
                     CountryModel.begin_year <= year,
-                    CountryModel.end_year >= year,
+                    or_(
+                        CountryModel.end_year.is_(None),
+                        CountryModel.end_year >= year,
+                    ),
+                    CountryModel.deleted.is_(False),
                 ))
                 .options(
-                    selectinload(CountryModel.owner),
-                    selectinload(CountryModel.regions),
+                    selectinload(
+                        CountryModel.owner.and_(
+                            CountryModel.deleted.is_(False),
+                        )
+                    ),
+                    selectinload(
+                        CountryModel.regions.and_(
+                            CountryModel.deleted.is_(False),
+                        )
+                    ),
                 )
                 .order_by(CountryModel.begin_year, CountryModel.id)
             )

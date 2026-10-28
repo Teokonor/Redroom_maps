@@ -24,6 +24,10 @@ function requestVideoSelection(url: string): Promise<VideoSelection> {
   return requestJson<VideoSelection>(url);
 }
 
+export function getVideoPreviewUrl(imageFile: string): string {
+  return `${API_URL}/preview/${encodeURIComponent(imageFile)}`;
+}
+
 export function loadAllVideos(): Promise<Video[]> {
   return requestJson<Video[]>(`${API_URL}/video`);
 }

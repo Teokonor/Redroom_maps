@@ -4,7 +4,7 @@ from collections import defaultdict
 from datetime import date
 from typing import Iterable, List
 
-from sqlalchemy.orm import Mapped, mapped_column, relationship, joinedload
+from sqlalchemy.orm import Mapped, mapped_column, relationship, joinedload, aliased
 from sqlalchemy.sql.sqltypes import String, Integer, Date
 
 from .abs import Base
@@ -81,12 +81,26 @@ class VideoService:
     @staticmethod
     def get_for_history(country_id: str) -> dict[str, list[VideoModel]]:
         with Database.session() as session:
+            before_country = aliased(CountryModel)
+            after_country = aliased(CountryModel)
             transformations = (
                 session.query(
                     TransformationModel.before_id,
                     TransformationModel.after_id,
                 )
-                .filter(TransformationModel.deleted.is_(False))
+                .join(
+                    before_country,
+                    before_country.id == TransformationModel.before_id,
+                )
+                .join(
+                    after_country,
+                    after_country.id == TransformationModel.after_id,
+                )
+                .filter(
+                    TransformationModel.deleted.is_(False),
+                    before_country.deleted.is_(False),
+                    after_country.deleted.is_(False),
+                )
                 .all()
             )
 
@@ -110,9 +124,11 @@ class VideoService:
             periods = (
                 session.query(PeriodModel)
                 .options(joinedload(PeriodModel.video))
+                .join(CountryModel, CountryModel.id == PeriodModel.country_id)
                 .filter(
                     PeriodModel.country_id.in_(country_ids),
                     PeriodModel.deleted.is_(False),
+                    CountryModel.deleted.is_(False),
                 )
                 .all()
             )
@@ -146,6 +162,7 @@ class VideoService:
             )
 
 
+from .countries import CountryModel
 from .periods import PeriodModel
 from .tags import TagModel
 from .transformations import TransformationModel

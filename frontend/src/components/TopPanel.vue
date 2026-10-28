@@ -5,6 +5,7 @@ import type { Video } from '@/types/video';
 import { loadTags } from '@/api/tags';
 import { loadAllVideos, loadTagVideos } from '@/api/videos';
 import VideoCard from '@/components/VideoCard.vue';
+import VideoDetails from '@/components/VideoDetails.vue';
 
 type Panel = 'collections' | 'help' | 'support';
 
@@ -32,6 +33,7 @@ const tagsLoading = ref(false);
 const videosLoading = ref(false);
 const tagsError = ref<string | null>(null);
 const videosError = ref<string | null>(null);
+const selectedVideo = ref<Video | null>(null);
 
 let tagsRequestId = 0;
 let videosRequestId = 0;
@@ -116,6 +118,8 @@ function ensureCollections() {
 watch(
   () => props.panel,
   (panel) => {
+    selectedVideo.value = null;
+
     if (panel === 'collections') {
       ensureCollections();
     }
@@ -195,6 +199,7 @@ onBeforeUnmount(() => {
             v-for="video in videos"
             :key="video.num"
             :video="video"
+            @open="selectedVideo = $event"
           />
         </ul>
         <div v-else class="top-panel-status">
@@ -211,6 +216,12 @@ onBeforeUnmount(() => {
         Здесь будет информация о поддержке проекта.
       </p>
     </div>
+
+    <VideoDetails
+      v-if="selectedVideo"
+      :video="selectedVideo"
+      @close="selectedVideo = null"
+    />
   </aside>
 </template>
 

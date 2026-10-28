@@ -1,36 +1,28 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue';
+import { computed, ref } from 'vue';
 import type { Video } from '@/types/video';
-import { getYouTubeThumbnailUrl } from '@/utils/youtube';
+import { useVideoThumbnail } from '@/composables/useVideoThumbnail';
 
 const props = defineProps<{
   video: Video;
+}>();
+
+const emit = defineEmits<{
+  open: [video: Video];
 }>();
 
 const link = computed(
   () => props.video.url?.trim() || props.video.reserve_url?.trim() || null
 );
 
-const hasLocalImage = computed(
-  () => Boolean(props.video.image_file?.trim())
-);
+const { thumbnailUrl, thumbnailFailed, handleThumbnailError } =
+  useVideoThumbnail(() => props.video);
 
-const youtubeThumbnail = computed(() => {
-  // Local previews are not served yet, so an existing image_file keeps the placeholder.
-  if (hasLocalImage.value) return null;
-
-  return (
-    getYouTubeThumbnailUrl(props.video.url) ??
-    getYouTubeThumbnailUrl(props.video.reserve_url)
-  );
-});
-
-const thumbnailFailed = ref(false);
 const qualityTooltipVisible = ref(false);
 
-watch(youtubeThumbnail, () => {
-  thumbnailFailed.value = false;
-});
+function openDetails() {
+  emit('open', props.video);
+}
 
 const quality = computed(() => {
   const raw = props.video.quality?.trim() ?? '';
@@ -65,16 +57,25 @@ const quality = computed(() => {
 </script>
 
 <template>
-  <li class="video-card">
+  <li
+    class="video-card"
+    role="button"
+    tabindex="0"
+    aria-haspopup="dialog"
+    :aria-label="`Подробнее о видео: ${video.title}`"
+    @click="openDetails"
+    @keydown.enter.prevent="openDetails"
+    @keydown.space.prevent="openDetails"
+  >
     <div class="video-card-preview" aria-hidden="true">
       <img
-        v-if="youtubeThumbnail && !thumbnailFailed"
-        :src="youtubeThumbnail"
+        v-if="thumbnailUrl && !thumbnailFailed"
+        :src="thumbnailUrl"
         alt=""
         loading="lazy"
         decoding="async"
         referrerpolicy="no-referrer"
-        @error="thumbnailFailed = true"
+        @error="handleThumbnailError"
       />
     </div>
 
@@ -91,6 +92,8 @@ const quality = computed(() => {
           :title="link"
           target="_blank"
           rel="noopener noreferrer"
+          @click.stop
+          @keydown.stop
         >
           {{ link }}
         </a>
@@ -105,6 +108,7 @@ const quality = computed(() => {
           role="img"
           :style="{ backgroundColor: quality.color }"
           :aria-label="quality.label"
+          @click.stop
           @mouseenter="qualityTooltipVisible = true"
           @mouseleave="qualityTooltipVisible = false"
         >
@@ -128,9 +132,23 @@ const quality = computed(() => {
   align-items: center;
   box-sizing: border-box;
   padding: 8px;
+  cursor: pointer;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 10px;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
+}
+
+.video-card:hover {
+  background: rgba(255, 255, 255, 0.11);
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+.video-card:focus-visible {
+  outline: 2px solid #ffd866;
+  outline-offset: 2px;
 }
 
 .video-card-preview {

@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, ref, watch } from 'vue';
 import type { Country, CountryRegion } from '@/types/country';
-import type { VideoSelection } from '@/types/video';
+import type { Video, VideoSelection } from '@/types/video';
 import {
   loadCountryHistoryVideos,
   loadCountryVideos,
 } from '@/api/videos';
 import VideoCard from '@/components/VideoCard.vue';
+import VideoDetails from '@/components/VideoDetails.vue';
 import { formatYearPeriod, getYearQueryRange } from '@/utils/yearLabels';
 
 const props = defineProps<{
@@ -42,6 +43,7 @@ const mode = ref<VideosMode>('period');
 const selection = ref<VideoSelection>({ main: [], indirectly: [] });
 const isLoading = ref(false);
 const errorMessage = ref<string | null>(null);
+const selectedVideo = ref<Video | null>(null);
 
 let requestId = 0;
 
@@ -106,6 +108,7 @@ watch(
   () => [props.countryId, props.year] as const,
   () => {
     isRegionsTab.value = false;
+    selectedVideo.value = null;
     void loadSelection('period');
   },
   { immediate: true }
@@ -211,6 +214,7 @@ onBeforeUnmount(() => {
               v-for="video in selection.main"
               :key="video.num"
               :video="video"
+              @open="selectedVideo = $event"
             />
           </ul>
           <div v-else class="country-videos-empty">Нет видео</div>
@@ -223,6 +227,7 @@ onBeforeUnmount(() => {
               v-for="video in selection.indirectly"
               :key="video.num"
               :video="video"
+              @open="selectedVideo = $event"
             />
           </ul>
           <div v-else class="country-videos-empty">Нет видео</div>
@@ -245,6 +250,12 @@ onBeforeUnmount(() => {
         {{ region.name }}
       </button>
     </div>
+
+    <VideoDetails
+      v-if="selectedVideo"
+      :video="selectedVideo"
+      @close="selectedVideo = null"
+    />
   </aside>
 </template>
 

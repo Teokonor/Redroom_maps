@@ -1,6 +1,6 @@
 from typing import List
 
-from sqlalchemy import func
+from sqlalchemy import and_, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy.sql.sqltypes import String
 
@@ -29,11 +29,18 @@ class TagService:
             rows = (
                 session.query(
                     TagModel,
-                    func.count(VideoTagModel.video_num),
+                    func.count(VideoModel.num),
                 )
                 .outerjoin(
                     VideoTagModel,
                     VideoTagModel.tag_id == TagModel.id,
+                )
+                .outerjoin(
+                    VideoModel,
+                    and_(
+                        VideoModel.num == VideoTagModel.video_num,
+                        VideoModel.deleted.is_(False),
+                    ),
                 )
                 .group_by(TagModel.id, TagModel.name)
                 .order_by(TagModel.name, TagModel.id)

@@ -5,6 +5,7 @@ from uvicorn import Server as UvicornServer, Config as UvicornConfig
 
 from .country import country_router
 from .geometry import map_router
+from .preview import preview_router
 from .tag import tag_router
 from .video import video_router
 
@@ -25,6 +26,7 @@ def run_app():
     )
     app.include_router(map_router)
     app.include_router(country_router)
+    app.include_router(preview_router)
     app.include_router(tag_router)
     app.include_router(video_router)
 
