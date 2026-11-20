@@ -18,7 +18,11 @@ htmlcov/
 !.env.example
 
 # Runtime data
-data/
+/data/
+
+# Local archives
+*.tar.gz
+*.zip
 
 # Logs and temporary files
 *.log
