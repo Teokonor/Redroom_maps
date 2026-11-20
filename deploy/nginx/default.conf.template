@@ -1,0 +1,78 @@
+server {
+    listen 80;
+    server_name _;
+
+    server_tokens off;
+
+    sendfile on;
+    tcp_nopush on;
+
+    root /usr/share/nginx/html;
+    index index.html;
+
+    include /etc/nginx/security_headers;
+
+    # Frontend and SPA fallback.
+    location / {
+        try_files $uri $uri/ /index.html;
+        add_header Cache-Control "no-cache";
+        include /etc/nginx/security_headers;
+    }
+
+    location /assets/ {
+        try_files $uri =404;
+        add_header Cache-Control "public, max-age=31536000, immutable";
+        include /etc/nginx/security_headers;
+    }
+
+    # API routes are served by FastAPI.
+    location /map/ {
+        proxy_pass http://${BACKEND_UPSTREAM};
+        include /etc/nginx/proxy_params;
+    }
+
+    location /preview/ {
+        proxy_pass http://${BACKEND_UPSTREAM};
+        include /etc/nginx/proxy_params;
+    }
+
+    location /country/ {
+        proxy_pass http://${BACKEND_UPSTREAM};
+        include /etc/nginx/proxy_params;
+    }
+
+    location = /video {
+        proxy_pass http://${BACKEND_UPSTREAM};
+        include /etc/nginx/proxy_params;
+    }
+
+    location /video/ {
+        proxy_pass http://${BACKEND_UPSTREAM};
+        include /etc/nginx/proxy_params;
+    }
+
+    location /tag/ {
+        proxy_pass http://${BACKEND_UPSTREAM};
+        include /etc/nginx/proxy_params;
+    }
+
+    location /data/ {
+        proxy_pass http://${BACKEND_UPSTREAM};
+        include /etc/nginx/proxy_params;
+    }
+
+    location = /ping {
+        proxy_pass http://${BACKEND_UPSTREAM};
+        include /etc/nginx/proxy_params;
+    }
+
+    gzip on;
+    gzip_proxied any;
+    gzip_min_length 1024;
+    gzip_types
+        text/plain
+        text/css
+        application/json
+        application/javascript
+        image/svg+xml;
+}

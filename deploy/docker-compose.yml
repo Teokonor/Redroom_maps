@@ -1,0 +1,59 @@
+services:
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    environment:
+      REDROOM_RUNTIME_DIR: /data/runtime
+      REDROOM_LOG_LEVEL: ${REDROOM_LOG_LEVEL:-INFO}
+      REDROOM_LOG_DIR: /logs
+      REDROOM_CORS_ORIGINS: ${REDROOM_CORS_ORIGINS:-}
+      WEB_CONCURRENCY: ${WEB_CONCURRENCY:-2}
+    volumes:
+      - type: bind
+        source: ${HOST_RUNTIME_DIR:-../data/runtime}
+        target: /data/runtime
+      - type: bind
+        source: ${HOST_LOG_DIR:-../logs}
+        target: /logs
+    expose:
+      - "8652"
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request; urllib.request.urlopen('http://127.0.0.1:8652/ping')\""]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 10s
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  nginx:
+    build:
+      context: ..
+      dockerfile: deploy/nginx/Dockerfile
+      args:
+        VITE_API_URL: ${VITE_API_URL:-}
+    ports:
+      - "${WEB_BIND:-0.0.0.0}:${WEB_PORT:-8080}:80"
+    environment:
+      BACKEND_UPSTREAM: ${BACKEND_UPSTREAM:-backend:8652}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1/ || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
