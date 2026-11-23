@@ -21,3 +21,9 @@ MAPS_DIR = RUNTIME_DIR / 'maps' / 'topojson'
 GZIP_MAPS_DIR = RUNTIME_DIR / 'maps' / 'gzip'
 COLOR_IDS_PATH = RUNTIME_DIR / 'maps' / 'color_ids.json'
 PREVIEWS_DIR = RUNTIME_DIR / 'previews'
+
+# Curated country -> history-group map. It is part of the application (not
+# runtime data) so the server does not need data/work.
+HISTORY_GROUPS_PATH = (
+    Path(__file__).resolve().parent / 'data' / 'history_groups.json'
+)

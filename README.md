@@ -159,7 +159,7 @@ data/work/                         ручная работа, в прод не �
   maps/geojson/auxiliary/          вспомогательные GeoJSON
   maps/pictures/                   изображения для QGIS
   schemes/                         drawio-схемы и их txt
-  periods/histories/               выгрузки историй
+  periods/histories/               выгрузки историй — источник для групп истории
   periods/selections/              выгрузки подборок
 
 data/runtime/                      нужно приложению
@@ -213,6 +213,46 @@ python scripts\download_video_previews.py
 
 Превью сохраняются в `data/runtime/previews`, ссылки — в БД.
 
+## Группы историй
+
+Режим «вся история» не должен смешивать все страны мира. Поэтому история
+строится по группам из `data/work/periods/histories`:
+
+- `index.csv` — список групп и их современных стран;
+- `russia.csv`, `yugoslavia.csv` и т.д. — исторические страны группы.
+
+Из них генерируется `backend/app/data/history_groups.json`:
+
+- `country_groups` — основная группа каждой страны;
+- `groups` — все исторические страны, входящие в группу.
+
+Файл коммитится в git, потому что нужен на сервере, где `data/work`
+отсутствует. Для современной страны используется группа, где она указана
+в `members`. Для исторической страны — первая подходящая группа. Широкие
+группы `europe`, `africa`, `america` намеренно не используются: они
+перекрывают почти весь мир.
+
+После изменения `data/work/periods/histories`:
+
+```powershell
+python scripts\build_history_groups.py
+python scripts\check_history.py
+```
+
+Первый скрипт пересобирает JSON, второй проверяет, что видео не попадают
+в чужую историю. После этого закоммитить `backend/app/data/history_groups.json`
+и пересобрать backend:
+
+```powershell
+cd deploy
+docker compose up --build -d backend
+docker compose restart nginx
+```
+
+Для России, Украины и Беларуси используется одна группа `east_slavs`.
+Османский Крым в неё входит, поэтому видео, где он упомянут **косвенно**,
+остаётся в истории косвенным упоминанием, но не становится основной темой.
+
 ## Бэкапы
 
 БД можно копировать на работающем backend — SQLite backup API делает
@@ -231,8 +271,10 @@ python scripts\backup_db.py
 - Версия карт считается один раз на воркер при старте.
 - На Docker Desktop для Windows этот стартовый скан может занять пару секунд из-за bind mount; после старта `/map/version` отвечает быстро.
 - Версия БД определяется по `mtime` и размеру файла БД.
-- История стран кэшируется в памяти воркера по связным компонентам.
-- При изменении БД её версия меняется, history-кэш сбрасывается.
+- Версия данных также включает версию `backend/app/data/history_groups.json`.
+- История стран кэшируется в памяти воркера по группе истории
+  (`russia`, `ukraine`, `belarus` → `east_slavs`).
+- При изменении БД или групп истории кэш сбрасывается.
 - `/map/version` и `/data/version` отдаются с `no-store`.
 - Карты и динамические JSON используют версионированные URL и HTTP-кэш.
 
@@ -401,6 +443,9 @@ cd ..
 
 # работающий стенд
 python scripts\smoke_test.py --base-url http://localhost:8080
+
+# история стран
+python scripts\check_history.py
 ```
 
 ## Что не коммитить

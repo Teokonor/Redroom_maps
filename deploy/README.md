@@ -135,6 +135,8 @@ certbot) that proxies to the published nginx port.
   A plain `restart` can keep the old bind mount.
 - Database only: no restart is needed; the DB version is derived from
   `mtime`.
+- History groups (`backend/app/data/history_groups.json`) are part of the
+  image: rebuild the backend after changing them.
 - After `docker compose up -d backend` run `docker compose restart nginx`.
   Nginx resolves the backend host once at startup and can return 502 after
   the container is recreated with another IP.

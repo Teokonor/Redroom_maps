@@ -1,14 +1,16 @@
 from __future__ import annotations
 
+import json
 from collections import OrderedDict, defaultdict
 from collections.abc import Iterable
 from datetime import date
 from threading import Lock
 
 from loguru import logger
-from sqlalchemy.orm import Mapped, mapped_column, relationship, joinedload, aliased
+from sqlalchemy.orm import Mapped, mapped_column, relationship, joinedload
 from sqlalchemy.sql.sqltypes import String, Integer, Date, JSON
 
+from ..constants import HISTORY_GROUPS_PATH
 from .abs import Base
 from .orm import Database
 from .video_tags import VideoTagModel
@@ -99,15 +101,19 @@ def _build_period_groups(periods: Iterable[PeriodModel]) -> list[dict]:
     ]
 
 
-# Cache responses by connected component: every country from the same
-# transformation graph has the same full-history response. The cache is
-# per worker and is dropped when the database file changes.
+# History scope comes from the curated groups in
+# backend/app/data/history_groups.json (generated from
+# data/work/periods/histories). Countries that share a group share their
+# history: for example, Russia, Ukraine and Belarus all use east_slavs.
+# The cache is per worker and is dropped when the data version changes.
 _HISTORY_CACHE_LIMIT = 128
-_history_cache_lock = Lock()
+_history_lock = Lock()
 _history_cache_version: str | None = None
-_history_component_by_country: dict[str, str] = {}
-_history_component_members: dict[str, tuple[str, ...]] = {}
 _history_cache: OrderedDict[str, dict] = OrderedDict()
+
+_history_groups_loaded = False
+_history_groups_by_country: dict[str, str] = {}
+_history_group_members: dict[str, tuple[str, ...]] = {}
 
 
 def _reset_history_cache(version: str) -> None:
@@ -124,134 +130,107 @@ def _reset_history_cache(version: str) -> None:
         )
 
     _history_cache_version = version
-    _history_component_by_country.clear()
-    _history_component_members.clear()
     _history_cache.clear()
 
 
-def _load_history_components() -> tuple[
-    dict[str, str], dict[str, tuple[str, ...]]
-]:
-    with Database.session() as session:
-        before_country = aliased(CountryModel)
-        after_country = aliased(CountryModel)
-        transformations = (
-            session.query(
-                TransformationModel.before_id,
-                TransformationModel.after_id,
+def _load_history_groups() -> None:
+    global _history_groups_loaded
+
+    if _history_groups_loaded:
+        return
+
+    _history_groups_loaded = True
+
+    try:
+        raw = json.loads(
+            HISTORY_GROUPS_PATH.read_text(encoding='utf-8')
+        )
+    except (OSError, ValueError) as error:
+        logger.warning(
+            'Cannot load history groups from {}: {}',
+            HISTORY_GROUPS_PATH,
+            error,
+        )
+        return
+
+    country_groups = raw.get('country_groups', {})
+    groups = raw.get('groups', {})
+
+    for country_id, group_id in country_groups.items():
+        if isinstance(group_id, str) and group_id:
+            _history_groups_by_country[country_id] = group_id
+
+    for group_id, country_ids in groups.items():
+        if not isinstance(country_ids, list):
+            continue
+        _history_group_members[group_id] = tuple(
+            sorted(
+                {
+                    country_id
+                    for country_id in country_ids
+                    if isinstance(country_id, str)
+                }
             )
-            .join(
-                before_country,
-                before_country.id == TransformationModel.before_id,
-            )
-            .join(
-                after_country,
-                after_country.id == TransformationModel.after_id,
-            )
-            .filter(
-                TransformationModel.deleted.is_(False),
-                before_country.deleted.is_(False),
-                after_country.deleted.is_(False),
-            )
-            .all()
         )
 
-    neighbors: dict[str, set[str]] = defaultdict(set)
-    for before_id, after_id in transformations:
-        neighbors[before_id].add(after_id)
-        neighbors[after_id].add(before_id)
-
-    component_by_country: dict[str, str] = {}
-    component_members: dict[str, tuple[str, ...]] = {}
-
-    for node in neighbors:
-        if node in component_by_country:
-            continue
-
-        members = {node}
-        pending = [node]
-
-        # Traverse both directions, keeping every branch and guarding cycles.
-        while pending:
-            current_id = pending.pop()
-            for next_id in neighbors.get(current_id, ()):
-                if next_id in members:
-                    continue
-                members.add(next_id)
-                pending.append(next_id)
-
-        root = min(members)
-        ordered_members = tuple(sorted(members))
-        component_members[root] = ordered_members
-
-        for country_id in members:
-            component_by_country[country_id] = root
-
-    logger.debug(
-        'Built {} history components from {} transformations',
-        len(component_members),
-        len(transformations),
+    logger.info(
+        'Loaded history groups: {} countries, {} groups',
+        len(_history_groups_by_country),
+        len(_history_group_members),
     )
 
-    return component_by_country, component_members
 
+def _history_scope(country_id: str) -> tuple[str, tuple[str, ...]]:
+    """Return a cache key and the countries that make up this history."""
+    with _history_lock:
+        _load_history_groups()
 
-def _history_component(
-    country_id: str, version: str
-) -> tuple[str, tuple[str, ...]]:
-    with _history_cache_lock:
-        _reset_history_cache(version)
+        group_id = _history_groups_by_country.get(country_id)
+        if not group_id:
+            return f'country:{country_id}', (country_id,)
 
-        root = _history_component_by_country.get(country_id)
+        members = _history_group_members.get(group_id)
+        if not members:
+            return f'country:{country_id}', (country_id,)
 
-        if root is None:
-            component_by_country, component_members = (
-                _load_history_components()
-            )
-            _history_component_by_country.update(component_by_country)
-            _history_component_members.update(component_members)
-            root = _history_component_by_country.get(
-                country_id, country_id
-            )
-
-        members = _history_component_members.get(
-            root, (country_id,)
-        )
-        return root, members
+        # Keep the country itself even if a group file forgot to list it.
+        scope = set(members)
+        scope.add(country_id)
+        return f'group:{group_id}', tuple(sorted(scope))
 
 
 def _history_cache_get(
-    version: str, root: str
+    version: str, cache_key: str
 ) -> dict | None:
-    with _history_cache_lock:
+    with _history_lock:
         _reset_history_cache(version)
 
-        payload = _history_cache.get(root)
+        payload = _history_cache.get(cache_key)
         if payload is not None:
-            _history_cache.move_to_end(root)
+            _history_cache.move_to_end(cache_key)
 
         return payload
 
 
-def _history_cache_set(version: str, root: str, payload: dict) -> None:
-    with _history_cache_lock:
+def _history_cache_set(version: str, cache_key: str, payload: dict) -> None:
+    with _history_lock:
         if _history_cache_version != version:
             return
 
-        _history_cache[root] = payload
-        _history_cache.move_to_end(root)
+        _history_cache[cache_key] = payload
+        _history_cache.move_to_end(cache_key)
 
         while len(_history_cache) > _HISTORY_CACHE_LIMIT:
             _history_cache.popitem(last=False)
 
 
-def _build_history_response(component_ids: tuple[str, ...]) -> dict:
+def _build_history_response(country_ids: tuple[str, ...]) -> dict:
     with Database.session() as session:
         periods = (
             session.query(PeriodModel)
             .options(joinedload(PeriodModel.video))
             .filter(
-                PeriodModel.country_id.in_(component_ids),
+                PeriodModel.country_id.in_(country_ids),
                 PeriodModel.deleted.is_(False),
             )
             .all()
@@ -284,25 +263,25 @@ class VideoService:
     @staticmethod
     def get_for_history(country_id: str) -> dict:
         version = Database.data_version()
-        root, component_ids = _history_component(country_id, version)
+        cache_key, country_ids = _history_scope(country_id)
 
-        cached = _history_cache_get(version, root)
+        cached = _history_cache_get(version, cache_key)
         if cached is not None:
             logger.debug(
-                'History cache hit: country={}, component={}',
+                'History cache hit: country={}, scope={}',
                 country_id,
-                root,
+                cache_key,
             )
             return cached
 
         logger.debug(
-            'History cache miss: country={}, component={}, countries={}',
+            'History cache miss: country={}, scope={}, countries={}',
             country_id,
-            root,
-            len(component_ids),
+            cache_key,
+            len(country_ids),
         )
-        selection = _build_history_response(component_ids)
-        _history_cache_set(version, root, selection)
+        selection = _build_history_response(country_ids)
+        _history_cache_set(version, cache_key, selection)
         return selection
 
     @staticmethod

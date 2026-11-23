@@ -7,7 +7,7 @@ from loguru import logger
 from sqlalchemy import create_engine, orm
 from sqlalchemy.orm import Session
 
-from ..constants import DATABASE_PATH
+from ..constants import DATABASE_PATH, HISTORY_GROUPS_PATH
 
 
 _BACKEND_DIR = Path(__file__).resolve().parents[2]
@@ -55,7 +55,15 @@ class Database:
             latest = max(latest, stat.st_mtime_ns)
             total_size += stat.st_size
 
-        return f'{latest}-{total_size}'
+        try:
+            groups_stat = HISTORY_GROUPS_PATH.stat()
+            groups_version = (
+                f'{groups_stat.st_mtime_ns}-{groups_stat.st_size}'
+            )
+        except OSError:
+            groups_version = '0-0'
+
+        return f'{latest}-{total_size}-{groups_version}'
 
     @staticmethod
     @contextmanager
