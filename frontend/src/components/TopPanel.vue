@@ -1,15 +1,18 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, ref, watch } from 'vue';
 import type { Tag } from '@/types/tag';
-import type { Video } from '@/types/video';
+import type { Video, VideoSelection } from '@/types/video';
 import { loadTags } from '@/api/tags';
-import { loadTagVideos } from '@/api/videos';
+import { loadTagVideos, loadVideosByYears } from '@/api/videos';
 import ContactsPanel from '@/components/ContactsPanel.vue';
 import HelpPanel from '@/components/HelpPanel.vue';
 import VideoCard from '@/components/VideoCard.vue';
 import VideoDetails from '@/components/VideoDetails.vue';
+import { useMapState } from '@/composables/useMapState';
 import { useMobileLayout } from '@/composables/useMobileLayout';
 import { useVideoCatalog } from '@/composables/useVideoCatalog';
+import { getYearQueryRange, toDisplayYear } from '@/utils/yearLabels';
+import { parseYearInput } from '@/utils/yearInput';
 
 type Panel = 'collections' | 'ideas' | 'help' | 'contacts';
 
@@ -32,16 +35,30 @@ const panelTitle = computed(() => {
 });
 
 const isMobile = useMobileLayout();
+const { selectedYear, showIndirectVideos } = useMapState();
 const mobileTagsOpen = ref(false);
+
+type CollectionKind = 'all' | 'years' | 'tag';
 
 const tags = ref<Tag[]>([]);
 const selectedTagId = ref<string | null>(null);
+const collectionKind = ref<CollectionKind>('all');
+const yearBeginInput = ref('');
+const yearEndInput = ref('');
+const yearRangeError = ref<string | null>(null);
+const yearSelection = ref<VideoSelection>({
+  main: [],
+  indirectly: [],
+});
+const yearRangeEdited = ref(false);
 const videos = ref<Video[]>([]);
 const tagsLoading = ref(false);
 const videosLoading = ref(false);
 const tagsError = ref<string | null>(null);
 const videosError = ref<string | null>(null);
 const selectedVideo = ref<Video | null>(null);
+
+const EARLIEST_RANGE_BEGIN = -9999;
 
 const ideas = ref<string[]>([]);
 const ideasLoading = ref(false);
@@ -52,6 +69,7 @@ const { ensureCatalog } = useVideoCatalog();
 
 let tagsRequestId = 0;
 let videosRequestId = 0;
+let yearRequestId = 0;
 
 const sortedTags = computed(() =>
   [...tags.value].sort((a, b) => a.name.localeCompare(b.name, 'ru'))
@@ -62,11 +80,102 @@ const selectedTag = computed(
 );
 
 const collectionTitle = computed(
-  () => selectedTag.value?.name ?? 'Все видео'
+  () =>
+    collectionKind.value === 'years'
+      ? 'По годам'
+      : (selectedTag.value?.name ?? 'Все видео')
+);
+
+const yearMainVideos = computed(() => yearSelection.value.main);
+const yearIndirectVideos = computed(() =>
+  showIndirectVideos.value ? yearSelection.value.indirectly : []
+);
+const yearHasVisibleVideos = computed(
+  () =>
+    yearMainVideos.value.length > 0 ||
+    yearIndirectVideos.value.length > 0
 );
 
 function errorMessage(error: unknown, fallback: string) {
   return error instanceof Error ? error.message : fallback;
+}
+
+function defaultYearRange(): { begin: string; end: string } {
+  const { begin, end } = getYearQueryRange(selectedYear.value);
+  const safeBegin = Math.max(begin, EARLIEST_RANGE_BEGIN);
+
+  return {
+    begin: String(toDisplayYear(safeBegin)),
+    end: String(toDisplayYear(end)),
+  };
+}
+
+function applyDefaultYearRange() {
+  const range = defaultYearRange();
+  yearBeginInput.value = range.begin;
+  yearEndInput.value = range.end;
+  yearRangeError.value = null;
+  yearRangeEdited.value = false;
+}
+
+async function loadYearRange() {
+  const begin = parseYearInput(yearBeginInput.value);
+  const end = parseYearInput(yearEndInput.value);
+
+  if (begin === null || end === null) {
+    yearRangeError.value =
+      'Введите годы числами, например 1800 или 501 до н.э.';
+    return;
+  }
+
+  if (begin > end) {
+    yearRangeError.value =
+      'Начальный год не может быть больше конечного';
+    return;
+  }
+
+  yearRangeError.value = null;
+
+  const requestId = ++yearRequestId;
+  videosLoading.value = true;
+  videosError.value = null;
+  yearSelection.value = { main: [], indirectly: [] };
+
+  try {
+    const nextSelection = await loadVideosByYears(begin, end);
+
+    if (requestId !== yearRequestId) return;
+    yearSelection.value = nextSelection;
+  } catch (error) {
+    if (requestId !== yearRequestId) return;
+    videosError.value = errorMessage(error, 'Не удалось загрузить видео');
+  } finally {
+    if (requestId === yearRequestId) videosLoading.value = false;
+  }
+}
+
+function submitYearRange() {
+  yearRangeEdited.value = true;
+  void loadYearRange();
+}
+
+function selectYears() {
+  mobileTagsOpen.value = false;
+  collectionKind.value = 'years';
+  selectedTagId.value = null;
+  applyDefaultYearRange();
+  void loadYearRange();
+}
+
+function selectAllVideos() {
+  mobileTagsOpen.value = false;
+
+  if (collectionKind.value === 'all' && !videosError.value) return;
+
+  collectionKind.value = 'all';
+  selectedTagId.value = null;
+  yearRangeError.value = null;
+  void loadVideos(null);
 }
 
 async function loadTagsOnce() {
@@ -112,16 +221,33 @@ async function loadVideos(tagId: string | null) {
 function selectTag(tagId: string | null) {
   mobileTagsOpen.value = false;
 
-  if (selectedTagId.value === tagId && !videosError.value) {
+  if (
+    collectionKind.value === 'tag' &&
+    selectedTagId.value === tagId &&
+    !videosError.value
+  ) {
     return;
   }
 
+  collectionKind.value = tagId ? 'tag' : 'all';
   selectedTagId.value = tagId;
+  yearRangeError.value = null;
   void loadVideos(tagId);
 }
 
 function ensureCollections() {
   void loadTagsOnce();
+
+  if (collectionKind.value === 'years') {
+    if (
+      !yearHasVisibleVideos.value &&
+      !videosLoading.value &&
+      !videosError.value
+    ) {
+      void loadYearRange();
+    }
+    return;
+  }
 
   if (
     videos.value.length === 0 &&
@@ -177,9 +303,17 @@ watch(
   { immediate: true }
 );
 
+watch(selectedYear, () => {
+  if (collectionKind.value !== 'years' || yearRangeEdited.value) return;
+
+  applyDefaultYearRange();
+  void loadYearRange();
+});
+
 onBeforeUnmount(() => {
   tagsRequestId += 1;
   videosRequestId += 1;
+  yearRequestId += 1;
 });
 </script>
 
@@ -216,10 +350,19 @@ onBeforeUnmount(() => {
         <button
           type="button"
           class="tag-button"
-          :class="{ 'is-active': selectedTagId === null }"
-          @click="selectTag(null)"
+          :class="{ 'is-active': collectionKind === 'all' }"
+          @click="selectAllVideos"
         >
           Все видео
+        </button>
+
+        <button
+          type="button"
+          class="tag-button"
+          :class="{ 'is-active': collectionKind === 'years' }"
+          @click="selectYears"
+        >
+          По годам
         </button>
 
         <button
@@ -227,7 +370,10 @@ onBeforeUnmount(() => {
           :key="tag.id"
           type="button"
           class="tag-button"
-          :class="{ 'is-active': selectedTagId === tag.id }"
+          :class="{
+            'is-active':
+              collectionKind === 'tag' && selectedTagId === tag.id,
+          }"
           @click="selectTag(tag.id)"
         >
           <span class="tag-name">{{ tag.name }}</span>
@@ -256,10 +402,19 @@ onBeforeUnmount(() => {
           <button
             type="button"
             class="tag-button"
-            :class="{ 'is-active': selectedTagId === null }"
-            @click="selectTag(null)"
+            :class="{ 'is-active': collectionKind === 'all' }"
+            @click="selectAllVideos"
           >
             Все видео
+          </button>
+
+          <button
+            type="button"
+            class="tag-button"
+            :class="{ 'is-active': collectionKind === 'years' }"
+            @click="selectYears"
+          >
+            По годам
           </button>
 
           <button
@@ -267,12 +422,63 @@ onBeforeUnmount(() => {
             :key="tag.id"
             type="button"
             class="tag-button"
-            :class="{ 'is-active': selectedTagId === tag.id }"
+            :class="{
+              'is-active':
+                collectionKind === 'tag' && selectedTagId === tag.id,
+            }"
             @click="selectTag(tag.id)"
           >
             <span class="tag-name">{{ tag.name }}</span>
             <span class="tag-count">{{ tag.video_count }}</span>
           </button>
+        </div>
+
+        <form
+          v-if="collectionKind === 'years'"
+          class="year-range-form"
+          @submit.prevent="submitYearRange"
+        >
+          <label class="year-range-field">
+            <span>с</span>
+            <input
+              v-model="yearBeginInput"
+              type="text"
+              inputmode="text"
+              aria-label="Начальный год"
+              @input="yearRangeEdited = true"
+            />
+          </label>
+
+          <span class="year-range-dash" aria-hidden="true">—</span>
+
+          <label class="year-range-field">
+            <span>по</span>
+            <input
+              v-model="yearEndInput"
+              type="text"
+              inputmode="text"
+              aria-label="Конечный год"
+              @input="yearRangeEdited = true"
+            />
+          </label>
+
+          <button
+            type="submit"
+            class="year-range-submit"
+            title="Показать видео"
+            aria-label="Показать видео"
+          >
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M3 8.5l3.2 3.2L13 4.5" />
+            </svg>
+          </button>
+        </form>
+
+        <div
+          v-if="collectionKind === 'years' && yearRangeError"
+          class="top-panel-status is-error"
+        >
+          {{ yearRangeError }}
         </div>
 
         <div v-if="videosLoading" class="top-panel-status">
@@ -281,6 +487,46 @@ onBeforeUnmount(() => {
         <div v-else-if="videosError" class="top-panel-status is-error">
           {{ videosError }}
         </div>
+        <template v-else-if="collectionKind === 'years'">
+          <section
+            v-if="yearMainVideos.length"
+            class="collection-section"
+          >
+            <h4 class="collection-section-title">Основная тема</h4>
+            <ul class="top-panel-video-list">
+              <VideoCard
+                v-for="video in yearMainVideos"
+                :key="video.num"
+                :video="video"
+                @open="selectedVideo = $event"
+              />
+            </ul>
+          </section>
+
+          <section
+            v-if="yearIndirectVideos.length"
+            class="collection-section"
+          >
+            <h4 class="collection-section-title">
+              Упомянуто косвенно
+            </h4>
+            <ul class="top-panel-video-list">
+              <VideoCard
+                v-for="video in yearIndirectVideos"
+                :key="video.num"
+                :video="video"
+                @open="selectedVideo = $event"
+              />
+            </ul>
+          </section>
+
+          <div
+            v-if="!yearHasVisibleVideos"
+            class="top-panel-status"
+          >
+            Нет видео
+          </div>
+        </template>
         <ul v-else-if="videos.length" class="top-panel-video-list">
           <VideoCard
             v-for="video in videos"
@@ -489,6 +735,87 @@ onBeforeUnmount(() => {
   color: #ffd866;
 }
 
+.year-range-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+}
+
+.year-range-field {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: rgba(244, 240, 230, 0.72);
+}
+
+.year-range-field input {
+  width: 72px;
+  padding: 7px 8px;
+  font: inherit;
+  font-size: 13px;
+  color: #f4f0e6;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+}
+
+.year-range-field input:focus {
+  border-color: #ffd866;
+  outline: none;
+}
+
+.year-range-dash {
+  color: rgba(244, 240, 230, 0.45);
+}
+
+.year-range-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  color: #000035;
+  cursor: pointer;
+  background: #ffd866;
+  border: 1px solid #ffd866;
+  border-radius: 6px;
+}
+
+.year-range-submit:hover {
+  background: #ffe9a3;
+  border-color: #ffe9a3;
+}
+
+.year-range-submit svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.collection-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.collection-section-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #ffd866;
+}
+
 .top-panel-video-list {
   display: flex;
   flex-direction: column;
@@ -553,7 +880,7 @@ onBeforeUnmount(() => {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 720px) {
   .top-panel {
     position: fixed;
     inset: 0;
@@ -583,6 +910,10 @@ onBeforeUnmount(() => {
     min-height: 0;
     padding-right: 0;
     overflow-y: auto;
+  }
+
+  .year-range-field input {
+    width: 64px;
   }
 
   .ideas {

@@ -1,10 +1,13 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref } from 'vue';
+import { onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { RouterView } from 'vue-router';
+import MobileWelcome from '@/components/MobileWelcome.vue';
 import TopPanel from '@/components/TopPanel.vue';
 import { useMapState } from '@/composables/useMapState';
 import { useMobileLayout } from '@/composables/useMobileLayout';
 import { formatYearHuman } from '@/utils/yearLabels';
+
+const MOBILE_WELCOME_KEY = 'redroom:mobile-welcome-v1';
 
 type Panel = 'collections' | 'ideas' | 'help' | 'contacts';
 
@@ -22,11 +25,33 @@ const {
   isYearRulerOpen,
   selectedProjectionId,
   showRegionBorders,
+  showIndirectVideos,
   isSettingsOpen,
 } = useMapState();
 
 const activePanel = ref<Panel | null>(null);
 const mobileMenuOpen = ref(false);
+const showMobileWelcome = ref(false);
+
+function hasSeenMobileWelcome(): boolean {
+  if (typeof window === 'undefined') return true;
+
+  try {
+    return window.localStorage.getItem(MOBILE_WELCOME_KEY) === '1';
+  } catch {
+    return true;
+  }
+}
+
+function closeMobileWelcome() {
+  showMobileWelcome.value = false;
+
+  try {
+    window.localStorage.setItem(MOBILE_WELCOME_KEY, '1');
+  } catch {
+    // Storage can be unavailable in private mode.
+  }
+}
 
 function togglePanel(panel: Panel) {
   activePanel.value = activePanel.value === panel ? null : panel;
@@ -54,9 +79,18 @@ function toggleMobileSettings() {
 }
 
 function toggleYearRuler() {
-  if (document.querySelector('.country-panel')) return;
+  const panelClose = document.querySelector<HTMLButtonElement>(
+    '.country-panel .country-panel-close'
+  );
+  const panelWasOpen = panelClose !== null;
 
-  isYearRulerOpen.value = !isYearRulerOpen.value;
+  if (panelClose) {
+    panelClose.click();
+  }
+
+  isYearRulerOpen.value = panelWasOpen
+    ? true
+    : !isYearRulerOpen.value;
 
   if (isYearRulerOpen.value) {
     mobileMenuOpen.value = false;
@@ -66,6 +100,12 @@ function toggleYearRuler() {
 
 function handleKeydown(event: KeyboardEvent) {
   if (!isMobile.value || event.key !== 'Escape') return;
+
+  if (showMobileWelcome.value) {
+    closeMobileWelcome();
+    return;
+  }
+
   if (
     document.querySelector(
       '.video-details-backdrop, .periods-backdrop'
@@ -85,7 +125,20 @@ function handleKeydown(event: KeyboardEvent) {
   }
 }
 
-onMounted(() => window.addEventListener('keydown', handleKeydown));
+onMounted(() => {
+  window.addEventListener('keydown', handleKeydown);
+
+  if (isMobile.value && !hasSeenMobileWelcome()) {
+    showMobileWelcome.value = true;
+  }
+});
+
+watch(isMobile, (mobile) => {
+  if (mobile && !hasSeenMobileWelcome()) {
+    showMobileWelcome.value = true;
+  }
+});
+
 onBeforeUnmount(() => window.removeEventListener('keydown', handleKeydown));
 </script>
 
@@ -209,6 +262,11 @@ onBeforeUnmount(() => window.removeEventListener('keydown', handleKeydown));
           <span>Границы регионов</span>
         </label>
 
+        <label class="mobile-region-toggle">
+          <input v-model="showIndirectVideos" type="checkbox" />
+          <span>Косвенно упомянутые</span>
+        </label>
+
         <div class="mobile-settings-title">Проекция</div>
         <div class="mobile-projection-list">
           <button
@@ -224,6 +282,11 @@ onBeforeUnmount(() => window.removeEventListener('keydown', handleKeydown));
         </div>
       </div>
     </div>
+
+    <MobileWelcome
+      v-if="isMobile && showMobileWelcome"
+      @close="closeMobileWelcome"
+    />
   </div>
 </template>
 

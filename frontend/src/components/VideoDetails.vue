@@ -480,7 +480,7 @@ onBeforeUnmount(() => {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 720px) {
   .video-details-backdrop {
     z-index: 70;
     padding: 8px;

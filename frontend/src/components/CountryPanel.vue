@@ -14,6 +14,7 @@ import {
 import HistoryTimeline from '@/components/HistoryTimeline.vue';
 import VideoCard from '@/components/VideoCard.vue';
 import VideoDetails from '@/components/VideoDetails.vue';
+import { useMapState } from '@/composables/useMapState';
 import { formatYearPeriod, getYearQueryRange } from '@/utils/yearLabels';
 import {
   buildTimelineBlocks,
@@ -46,6 +47,8 @@ const isRegionsTab = ref(false);
 const sortedRegions = computed(() =>
   [...props.regions].sort((a, b) => a.name.localeCompare(b.name, 'ru'))
 );
+
+const { showIndirectVideos } = useMapState();
 
 type VideosMode = 'period' | 'history';
 type HistoryView = 'release' | 'chronology';
@@ -342,7 +345,7 @@ onBeforeUnmount(() => {
               <div v-else class="country-videos-empty">Нет видео</div>
             </section>
 
-            <section class="country-video-section">
+            <section v-if="showIndirectVideos" class="country-video-section">
               <h3 class="country-video-heading">Упомянуто косвенно</h3>
               <ul
                 v-if="selection.indirectly.length"
@@ -370,6 +373,7 @@ onBeforeUnmount(() => {
               @open="selectedVideo = $event"
             />
             <HistoryTimeline
+              v-if="showIndirectVideos"
               id-prefix="indirect"
               :key="`indirect-${countryId}-${year}`"
               title="Упомянуто косвенно"
@@ -617,7 +621,7 @@ onBeforeUnmount(() => {
   color: #ffb4a8;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 720px) {
   .country-panel {
     position: fixed;
     top: var(--mobile-header-height, 52px);

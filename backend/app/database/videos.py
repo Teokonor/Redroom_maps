@@ -1,16 +1,20 @@
 from __future__ import annotations
 
-import json
 from collections import OrderedDict, defaultdict
 from collections.abc import Iterable
 from datetime import date
 from threading import Lock
 
 from loguru import logger
-from sqlalchemy.orm import Mapped, mapped_column, relationship, joinedload
+from sqlalchemy.orm import (
+    Mapped,
+    aliased,
+    joinedload,
+    mapped_column,
+    relationship,
+)
 from sqlalchemy.sql.sqltypes import String, Integer, Date, JSON
 
-from ..constants import HISTORY_GROUPS_PATH
 from .abs import Base
 from .orm import Database
 from .video_tags import VideoTagModel
@@ -101,23 +105,25 @@ def _build_period_groups(periods: Iterable[PeriodModel]) -> list[dict]:
     ]
 
 
-# History scope comes from the curated groups in
-# backend/app/data/history_groups.json (generated from
-# data/work/periods/histories). Countries that share a group share their
-# history: for example, Russia, Ukraine and Belarus all use east_slavs.
-# The cache is per worker and is dropped when the data version changes.
+# "All history" is the directed ancestor graph of a country: every country
+# that can reach it through transformations. Outgoing edges are deliberately
+# not followed, otherwise one split (USSR -> republics) would merge all
+# successors and siblings into each other's histories.
+#
+# The response cache is per worker and keyed by country id. It is dropped
+# when the database version changes. The graph is small and stays in memory;
+# nothing is written to disk.
 _HISTORY_CACHE_LIMIT = 128
 _history_lock = Lock()
 _history_cache_version: str | None = None
 _history_cache: OrderedDict[str, dict] = OrderedDict()
-
-_history_groups_loaded = False
-_history_groups_by_country: dict[str, str] = {}
-_history_group_members: dict[str, tuple[str, ...]] = {}
+_history_reverse_edges: dict[str, tuple[str, ...]] | None = None
+_history_forward_edges: dict[str, tuple[str, ...]] | None = None
 
 
 def _reset_history_cache(version: str) -> None:
-    global _history_cache_version
+    global _history_cache_version, _history_reverse_edges
+    global _history_forward_edges
 
     if _history_cache_version == version:
         return
@@ -131,72 +137,95 @@ def _reset_history_cache(version: str) -> None:
 
     _history_cache_version = version
     _history_cache.clear()
+    _history_reverse_edges = None
+    _history_forward_edges = None
 
 
-def _load_history_groups() -> None:
-    global _history_groups_loaded
+def _load_history_graph() -> None:
+    global _history_reverse_edges, _history_forward_edges
 
-    if _history_groups_loaded:
+    if _history_reverse_edges is not None:
         return
 
-    _history_groups_loaded = True
-
-    try:
-        raw = json.loads(
-            HISTORY_GROUPS_PATH.read_text(encoding='utf-8')
-        )
-    except (OSError, ValueError) as error:
-        logger.warning(
-            'Cannot load history groups from {}: {}',
-            HISTORY_GROUPS_PATH,
-            error,
-        )
-        return
-
-    country_groups = raw.get('country_groups', {})
-    groups = raw.get('groups', {})
-
-    for country_id, group_id in country_groups.items():
-        if isinstance(group_id, str) and group_id:
-            _history_groups_by_country[country_id] = group_id
-
-    for group_id, country_ids in groups.items():
-        if not isinstance(country_ids, list):
-            continue
-        _history_group_members[group_id] = tuple(
-            sorted(
-                {
-                    country_id
-                    for country_id in country_ids
-                    if isinstance(country_id, str)
-                }
+    with Database.session() as session:
+        before_country = aliased(CountryModel)
+        after_country = aliased(CountryModel)
+        transformations = (
+            session.query(
+                TransformationModel.before_id,
+                TransformationModel.after_id,
             )
+            .join(
+                before_country,
+                before_country.id == TransformationModel.before_id,
+            )
+            .join(
+                after_country,
+                after_country.id == TransformationModel.after_id,
+            )
+            .filter(
+                TransformationModel.deleted.is_(False),
+                before_country.deleted.is_(False),
+                after_country.deleted.is_(False),
+            )
+            .all()
         )
 
+    reverse: dict[str, set[str]] = defaultdict(set)
+    forward: dict[str, set[str]] = defaultdict(set)
+    for before_id, after_id in transformations:
+        reverse[after_id].add(before_id)
+        forward[before_id].add(after_id)
+
+    _history_reverse_edges = {
+        country_id: tuple(sorted(before_ids))
+        for country_id, before_ids in reverse.items()
+    }
+    _history_forward_edges = {
+        country_id: tuple(sorted(after_ids))
+        for country_id, after_ids in forward.items()
+    }
     logger.info(
-        'Loaded history groups: {} countries, {} groups',
-        len(_history_groups_by_country),
-        len(_history_group_members),
+        'Built history graph: {} edges, {} forward/reverse nodes',
+        len(transformations),
+        len(_history_reverse_edges),
     )
 
 
-def _history_scope(country_id: str) -> tuple[str, tuple[str, ...]]:
-    """Return a cache key and the countries that make up this history."""
+def _history_scope(country_id: str) -> tuple[str, ...]:
+    """Return past and future countries connected to this one.
+
+    Past is a reverse walk (after -> before), future is a forward walk
+    (before -> after). The two walks are independent: a future successor
+    does not pull in its other ancestors, and a past ancestor does not pull
+    in its other successors.
+    """
     with _history_lock:
-        _load_history_groups()
+        _load_history_graph()
+        reverse_edges = _history_reverse_edges or {}
+        forward_edges = _history_forward_edges or {}
 
-        group_id = _history_groups_by_country.get(country_id)
-        if not group_id:
-            return f'country:{country_id}', (country_id,)
+        past = {country_id}
+        pending = [country_id]
+        while pending:
+            current_id = pending.pop()
+            for before_id in reverse_edges.get(current_id, ()):
+                if before_id in past:
+                    continue
+                past.add(before_id)
+                pending.append(before_id)
 
-        members = _history_group_members.get(group_id)
-        if not members:
-            return f'country:{country_id}', (country_id,)
+        future = {country_id}
+        pending = [country_id]
+        while pending:
+            current_id = pending.pop()
+            for after_id in forward_edges.get(current_id, ()):
+                if after_id in future:
+                    continue
+                future.add(after_id)
+                pending.append(after_id)
 
-        # Keep the country itself even if a group file forgot to list it.
-        scope = set(members)
-        scope.add(country_id)
-        return f'group:{group_id}', tuple(sorted(scope))
+        return tuple(sorted(past | future))
 
 
 def _history_cache_get(
@@ -261,27 +290,40 @@ class VideoService:
             return _build_video_selection(periods)
 
     @staticmethod
+    def get_for_period_range(begin_year: int, end_year: int) -> dict:
+        with Database.session() as session:
+            periods = (
+                session.query(PeriodModel)
+                .options(joinedload(PeriodModel.video))
+                .filter(
+                    PeriodModel.deleted.is_(False),
+                    PeriodModel.begin_year <= end_year,
+                    PeriodModel.end_year >= begin_year,
+                )
+                .all()
+            )
+            return _build_video_selection(periods)
+
+    @staticmethod
     def get_for_history(country_id: str) -> dict:
         version = Database.data_version()
-        cache_key, country_ids = _history_scope(country_id)
 
-        cached = _history_cache_get(version, cache_key)
+        cached = _history_cache_get(version, country_id)
         if cached is not None:
             logger.debug(
-                'History cache hit: country={}, scope={}',
+                'History cache hit: country={}',
                 country_id,
-                cache_key,
             )
             return cached
 
+        country_ids = _history_scope(country_id)
         logger.debug(
-            'History cache miss: country={}, scope={}, countries={}',
+            'History cache miss: country={}, countries={}',
             country_id,
-            cache_key,
             len(country_ids),
         )
         selection = _build_history_response(country_ids)
-        _history_cache_set(version, cache_key, selection)
+        _history_cache_set(version, country_id, selection)
         return selection
 
     @staticmethod

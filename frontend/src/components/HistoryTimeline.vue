@@ -337,7 +337,7 @@ onBeforeUnmount(() => {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 720px) {
   .timeline-tick {
     width: 30%;
   }

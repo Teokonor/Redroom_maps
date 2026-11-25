@@ -30,6 +30,7 @@ const {
   isYearRulerOpen,
   selectedProjectionId,
   showRegionBorders,
+  showIndirectVideos,
 } = useMapState();
 
 const {
@@ -96,7 +97,8 @@ function handleMapKeydown(event: KeyboardEvent) {
   if (!isMobile.value || event.key !== 'Escape') return;
   if (
     document.querySelector(
-      '.video-details-backdrop, .periods-backdrop, .mobile-menu, ' +
+      '.video-details-backdrop, .periods-backdrop, ' +
+        '.mobile-welcome-backdrop, .mobile-menu, ' +
         '.mobile-settings-backdrop, .top-panel'
     )
   ) {
@@ -151,6 +153,15 @@ onBeforeUnmount(() => {
               class="region-borders-checkbox"
             />
             <span>Границы регионов</span>
+          </label>
+
+          <label class="region-borders-toggle">
+            <input
+              v-model="showIndirectVideos"
+              type="checkbox"
+              class="region-borders-checkbox"
+            />
+            <span>Косвенно упомянутые</span>
           </label>
 
           <div
@@ -360,6 +371,7 @@ onBeforeUnmount(() => {
 
 .map-controls {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 8px;
 }
@@ -476,7 +488,7 @@ onBeforeUnmount(() => {
   transform: translateX(100%);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 720px) {
   .map-layout {
     position: relative;
     display: block;

@@ -53,6 +53,32 @@ def get_video_periods(
     return VideoService.get_periods(video_num)
 
 
+@video_router.get('/years', response_model=VideoSelection)
+def get_videos_by_years(
+    request: Request,
+    response: Response,
+    begin: int = Query(..., description='Начало диапазона включительно'),
+    end: int = Query(..., description='Конец диапазона включительно'),
+    v: str | None = None,
+):
+    cached = cached_json(
+        request,
+        response,
+        key=f'video/years?begin={begin}&end={end}',
+        version=v,
+    )
+    if cached is not None:
+        return cached
+
+    if begin > end:
+        raise HTTPException(
+            status_code=400,
+            detail='begin must be less than or equal to end',
+        )
+
+    return VideoService.get_for_period_range(begin, end)
+
+
 @video_router.get('/{country_id}/all', response_model=HistoryVideoSelection)
 def get_all_country_videos(
     country_id: str,

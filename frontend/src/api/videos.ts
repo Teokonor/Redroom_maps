@@ -43,6 +43,20 @@ export function loadTagVideos(tagId: string): Promise<Video[]> {
   return requestJson<Video[]>(`${API_URL}/video?${params.toString()}`);
 }
 
+export function loadVideosByYears(
+  begin: number,
+  end: number
+): Promise<VideoSelection> {
+  const params = new URLSearchParams({
+    begin: String(begin),
+    end: String(end),
+  });
+
+  return requestJson<VideoSelection>(
+    `${API_URL}/video/years?${params.toString()}`
+  );
+}
+
 export function loadCountryVideos(
   countryId: string,
   begin: number,

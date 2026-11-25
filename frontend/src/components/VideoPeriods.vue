@@ -6,6 +6,7 @@ import type { Video } from '@/types/video';
 import PeriodsTable from '@/components/PeriodsTable.vue';
 import { loadCountries } from '@/api/countries';
 import { loadVideoPeriods } from '@/api/videos';
+import { useMapState } from '@/composables/useMapState';
 
 const props = defineProps<{
   video: Video;
@@ -16,6 +17,8 @@ const emit = defineEmits<{
 }>();
 
 const titleId = computed(() => `video-periods-title-${props.video.num}`);
+
+const { showIndirectVideos } = useMapState();
 
 const periods = ref<VideoPeriod[]>([]);
 const countries = ref<Country[]>([]);
@@ -52,8 +55,22 @@ const indirectRows = computed(() =>
 );
 
 const hasPeriods = computed(
-  () => mainRows.value.length > 0 || indirectRows.value.length > 0
+  () =>
+    mainRows.value.length > 0 ||
+    (showIndirectVideos.value && indirectRows.value.length > 0)
 );
+
+const emptyMessage = computed(() => {
+  if (
+    !showIndirectVideos.value &&
+    mainRows.value.length === 0 &&
+    indirectRows.value.length > 0
+  ) {
+    return 'У этого видео нет основной темы';
+  }
+
+  return 'У этого видео нет периодов';
+});
 
 async function load() {
   const current = ++requestId;
@@ -142,7 +159,7 @@ onBeforeUnmount(() => {
           {{ error }}
         </div>
         <div v-else-if="!hasPeriods" class="periods-status">
-          У этого видео нет периодов
+          {{ emptyMessage }}
         </div>
         <div v-else class="periods-sections">
           <section v-if="mainRows.length" class="periods-section">
@@ -150,7 +167,10 @@ onBeforeUnmount(() => {
             <PeriodsTable :rows="mainRows" />
           </section>
 
-          <section v-if="indirectRows.length" class="periods-section">
+          <section
+            v-if="showIndirectVideos && indirectRows.length"
+            class="periods-section"
+          >
             <h3 class="periods-section-title">Упомянуто косвенно</h3>
             <PeriodsTable :rows="indirectRows" />
           </section>
@@ -305,7 +325,7 @@ onBeforeUnmount(() => {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 720px) {
   .periods-backdrop {
     z-index: 80;
     padding: 8px;

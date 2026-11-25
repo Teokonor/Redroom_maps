@@ -20,6 +20,7 @@ CHECKS = [
     ('GET', '/map/colors', 200, 'json'),
     ('GET', '/country/all', 200, 'json'),
     ('GET', '/tag/all', 200, 'json'),
+    ('GET', '/video/years?begin=1800&end=1900', 200, 'json'),
     ('GET', '/map/geometry/2025', 200, None),
     ('GET', '/map/geometry/-3000', 200, None),
     ('GET', '/map/world/2025', 200, None),

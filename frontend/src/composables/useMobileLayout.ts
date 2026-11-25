@@ -1,6 +1,6 @@
 import { ref } from 'vue';
 
-const MOBILE_MAX_WIDTH = 600;
+const MOBILE_MAX_WIDTH = 720;
 const MOBILE_QUERY = `(max-width: ${MOBILE_MAX_WIDTH}px)`;
 
 const mediaQuery =
